@@ -1,8 +1,45 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import logo from '../../assets/logo.png';
 
 class HeaderComponent extends React.Component {
   render() {
-    return <h2>Header</h2>;
+    return (
+      <header className="header-container">
+        <div className="header-container__header-info">
+          <div className="header-info">
+            <span className="material-symbols-outlined">call</span>
+            <div className="header-info__call-info">
+              <div className="call-info__phone">8(829)650&#x2012;40&#x2012;06</div>
+              <div className="call-info__line"></div>
+              <div className="call-info__work">We work 7 days a week</div>
+              <div className="call-info__line"></div>
+              <div className="call-info__time">9:00&mdash;18:00</div>
+            </div>
+          </div>
+          <div className="header-login">
+            <span className="material-symbols-outlined">login</span>
+            <div className="header-login__entry">Sign in</div>
+            <div className="call-info__line"></div>
+            <div className="header-login__exit">Registration</div>
+          </div>
+        </div>
+        <div className="header-container__header-nav">
+          <div className="header-nav__logo">
+            <Link to="/">
+            <img src={logo} alt="OJJO" />
+            </Link>
+          </div>
+          <nav className="header-nav__navigation">
+            <ul className="navigation">
+              <li className="navigation__item"><Link to="/aboutUs">About us</Link></li>
+              <li className="navigation__item"><span className="material-symbols-outlined">shopping_cart</span></li>
+            </ul>
+            <span className="material-symbols-outlined">search</span>
+          </nav>
+        </div>
+      </header>
+    );
   }
 }
 

@@ -1,0 +1,14 @@
+@import './styles/variables.scss';
+
+body {
+  width: 1920px;
+  height: 100vh;
+  background-color: $background;
+  color: $text-color;
+  font-family: $text-font;
+}
+
+.app {
+  width: 1110px;
+  margin: 0 auto;
+}
