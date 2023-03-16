@@ -1,4 +1,9 @@
 @import './styles/variables.scss';
+@import '../src/components/Footer/FooterComponent.module.scss';
+
+* {
+  box-sizing: border-box;
+}
 
 body {
   width: 1920px;
@@ -7,8 +12,8 @@ body {
   color: $text-color;
   font-family: $text-font;
 }
-
+/* 
 .app {
   width: 1110px;
   margin: 0 auto;
-}
+} */
