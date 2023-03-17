@@ -1,8 +1,20 @@
+import CardItem from '../../components/CardItem/CardItem';
 import React from 'react';
 
 class MainPage extends React.Component {
   render() {
-    return <h2>Main Page</h2>;
+    return (
+      <div className="container-cards">
+        <CardItem />
+        <CardItem />
+        <CardItem />
+        <CardItem />
+        <CardItem />
+        <CardItem />
+        <CardItem />
+        <CardItem />
+      </div>
+    );
   }
 }
 

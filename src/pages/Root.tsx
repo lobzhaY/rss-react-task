@@ -7,7 +7,7 @@ import './Root.module.scss';
 class Root extends React.Component {
   render() {
     return (
-      <div>
+      <div className='margin-container'>
         <HeaderComponent />
         <div className="container">
           <Outlet />
