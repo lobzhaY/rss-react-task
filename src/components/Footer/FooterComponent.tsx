@@ -7,6 +7,7 @@ class FooterComponent extends React.Component {
   render() {
     return (
       <footer className="footer">
+       <div className='margin-container'>
         <div className="wrapper">
           <div className="footer__nav">
             <ul>
@@ -36,6 +37,7 @@ class FooterComponent extends React.Component {
               </Link>
             </div>
           </div>
+        </div>
         </div>
       </footer>
     );

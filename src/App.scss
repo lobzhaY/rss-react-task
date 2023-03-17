@@ -1,6 +1,7 @@
 @import './styles/variables.scss';
 @import './pages/Root.module.scss';
 @import '../src/components/Footer/FooterComponent.module.scss';
+@import '../src//components/Header/HeaderComponent.module.scss';
 
 * {
   box-sizing: border-box;
@@ -11,8 +12,3 @@ body {
   color: $text-color;
   font-family: $text-font;
 }
-/* 
-.app {
-  width: 1110px;
-  margin: 0 auto;
-} */
