@@ -1,29 +1,37 @@
 import React from 'react';
-
-class CardItem extends React.Component {
+type cardItemPropsType = {
+  imageUrl: string,
+  price: string,
+  sale: string,
+  description: string,
+}
+class CardItem extends React.Component<cardItemPropsType> {
+  constructor(props: cardItemPropsType) {
+    super(props);
+  }
   render() {
     return (
       <div className="card">
         <div className="card__image">
-        <div className="card__info">
-              <div className="info-container">
-                <span className="material-symbols-outlined card-icons">favorite</span>
-              </div>
-              <div className="info-container">
-                <span className="material-symbols-outlined card-icons">local_mall</span>
-              </div>
+          <div className="card__info">
+            <div className="info-container">
+              <span className="material-symbols-outlined card-icons">favorite</span>
             </div>
+            <div className="info-container">
+              <span className="material-symbols-outlined card-icons">local_mall</span>
+            </div>
+          </div>
           <div className="image__container">
             <img
-              src="https://slavia.by/upload/resize_cache/iblock/5e4/700_700_2/5e44a8a98cbe0259c774f6d013246767.jpg"
+              src={this.props.imageUrl}
               alt="Product img"
             />
           </div>
           <div className="image__info">
-            <div className="info__price">1 200.78 руб.</div>
-            <div className="info__price-sale">1 547.00 руб.</div>
+            <div className="info__price">{this.props.price} руб.</div>
+            <div className="info__price-sale">{this.props.sale} руб.</div>
             <div className="info__description">
-              Серьги из белого золота с бриллиантами 3D0081.14K.W
+              {this.props.description}
             </div>
           </div>
         </div>

@@ -26,14 +26,16 @@ class HeaderComponent extends React.Component {
         <div className="header-container__header-nav">
           <div className="margin-container">
             <div className="header-nav__logo">
-              <Link to="/" className='header-nav__logo-container'>
+              <Link to="/" className="header-nav__logo-container">
                 <img src={logo} alt="OJJO" />
               </Link>
             </div>
             <nav className="header-nav__navigation">
               <ul className="navigation">
                 <li className="navigation__item">
-                  <Link to="/aboutUs" className='navigation__item-link'>About us</Link>
+                  <Link to="/aboutUs" className="navigation__item-link">
+                    About us
+                  </Link>
                 </li>
                 <li className="navigation__item">
                   <span className="material-symbols-outlined">shopping_cart</span>
