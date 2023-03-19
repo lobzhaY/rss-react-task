@@ -1,4 +1,4 @@
-export type earringsType = {
+export type EarringsType = {
   id: number;
   imageUrl: string;
   name: string;
@@ -7,7 +7,7 @@ export type earringsType = {
   availability: string[];
 };
 
-const earrings: earringsType[] = [
+const earrings: EarringsType[] = [
   {
     id: 0,
     imageUrl: 'https://slavia.by/upload/iblock/4b7/4b770ffdcc94c249043859d14e82f0a0.jpg',

@@ -1,17 +1,16 @@
 import React from 'react';
 
-type titleType = {
+type TitleType = {
   name: string;
 };
 
-class TitleComponent extends React.Component<titleType> {
-  constructor(props: titleType) {
-    super(props);
-  }
+// eslint-disable-next-line react/prefer-stateless-function
+class TitleComponent extends React.Component<TitleType> {
   render() {
+    const { name } = this.props;
     return (
       <div className="title-container">
-        <h1>{this.props.name}</h1>
+        <h1>{name}</h1>
         <hr />
       </div>
     );

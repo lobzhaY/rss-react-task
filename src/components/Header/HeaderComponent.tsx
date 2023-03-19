@@ -1,7 +1,8 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import logo from '../../assets/logo.png';
 
+// eslint-disable-next-line react/prefer-stateless-function
 class HeaderComponent extends React.Component {
   render() {
     return (
@@ -33,11 +34,26 @@ class HeaderComponent extends React.Component {
             <nav className="header-nav__navigation">
               <ul className="navigation">
                 <li className="navigation__item">
-                  <Link to="/aboutUs" className="navigation__item-link">
-                    About us
-                  </Link>
+                  <NavLink
+                    to="/"
+                    className={({ isActive }) =>
+                      isActive ? `navigation__item-link-active` : 'navigation__item-link'
+                    }
+                  >
+                    Main page
+                  </NavLink>
                 </li>
                 <li className="navigation__item">
+                  <NavLink
+                    to="/aboutUs"
+                    className={({ isActive }) =>
+                      isActive ? `navigation__item-link-active` : 'navigation__item-link'
+                    }
+                  >
+                    About us
+                  </NavLink>
+                </li>
+                <li className="navigation__item item-cursor">
                   <span className="material-symbols-outlined">shopping_cart</span>
                 </li>
               </ul>

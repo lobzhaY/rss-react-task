@@ -1,9 +1,10 @@
-import CardItem from '../../components/CardItem/CardItem';
 import React from 'react';
-import earrings, { earringsType } from '../../db/db';
+import CardItem from '../../components/CardItem/CardItem';
+import earrings, { EarringsType } from '../../db/db';
 import TitleComponent from '../../components/Title/TitleComponent';
 import SearchComponent from '../../components/Search/SearchComponent';
 
+// eslint-disable-next-line react/prefer-stateless-function
 class MainPage extends React.Component {
   render() {
     return (
@@ -11,8 +12,8 @@ class MainPage extends React.Component {
         <TitleComponent name="Main page" />
         <SearchComponent />
         <div className="margin-container">
-          <div className="container-cards">
-            {earrings.map((elem: earringsType) => (
+          <div className="container-cards" data-testid="not-empty">
+            {earrings.map((elem: EarringsType) => (
               <CardItem
                 key={elem.id}
                 imageUrl={elem.imageUrl}

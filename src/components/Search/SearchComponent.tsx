@@ -1,5 +1,6 @@
 import React, { ChangeEvent } from 'react';
 
+// eslint-disable-next-line react/prefer-stateless-function
 class SearchComponent extends React.Component<Record<string, unknown>, { searchValue: string }> {
   constructor(props = {}) {
     super(props);
@@ -8,28 +9,34 @@ class SearchComponent extends React.Component<Record<string, unknown>, { searchV
     };
     this.saveValue = this.saveValue.bind(this);
   }
+
   componentDidMount(): void {
     const saveValue = localStorage.getItem('searchValue');
     if (saveValue?.trim()) {
       this.setState({ searchValue: saveValue });
     }
   }
+
   componentWillUnmount(): void {
-    localStorage.setItem('searchValue', this.state.searchValue);
+    const { searchValue } = this.state;
+    localStorage.setItem('searchValue', searchValue);
   }
+
   saveValue(event: ChangeEvent<HTMLInputElement>): void {
     const target = event.target as HTMLInputElement;
     this.setState({
       searchValue: target.value,
     });
   }
+
   render() {
+    const { searchValue } = this.state;
     return (
       <div className="search-header">
         <input
           type="text"
-          placeholder={this.state.searchValue === '' ? 'Search...' : ''}
-          value={this.state.searchValue === '' ? '' : this.state.searchValue}
+          placeholder={searchValue === '' ? 'Search...' : ''}
+          value={searchValue === '' ? '' : searchValue}
           onChange={this.saveValue}
         />
         <span className="material-symbols-outlined">search</span>

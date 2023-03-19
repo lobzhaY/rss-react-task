@@ -13,7 +13,8 @@
     "strict": true,
     "skipLibCheck": true,
     "baseUrl": "./src",
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    "types": ["vitest/globals"/* , "@testing-library/jest-dom" */]
   },
-  "include": ["./src/**/*", "styled.d.ts"]
+  "include": ["vite.config.ts", ".eslintrc.json", "./jest-setup.ts", "./src/**/*", "styled.d.ts"]
 }

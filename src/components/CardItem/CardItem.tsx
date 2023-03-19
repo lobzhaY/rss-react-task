@@ -1,17 +1,18 @@
 import React from 'react';
-type cardItemPropsType = {
+
+type CardItemPropsType = {
   imageUrl: string;
   price: string;
   sale: string;
   description: string;
 };
-class CardItem extends React.Component<cardItemPropsType> {
-  constructor(props: cardItemPropsType) {
-    super(props);
-  }
+
+// eslint-disable-next-line react/prefer-stateless-function
+class CardItem extends React.Component<CardItemPropsType> {
   render() {
+    const { imageUrl, price, sale, description } = this.props;
     return (
-      <div className="card">
+      <div className="card" data-testid="html-element">
         <div className="card__image">
           <div className="card__info">
             <div className="info-container">
@@ -22,16 +23,18 @@ class CardItem extends React.Component<cardItemPropsType> {
             </div>
           </div>
           <div className="image__container">
-            <img src={this.props.imageUrl} alt="Product img" />
+            <img src={imageUrl} alt="Product img" />
           </div>
           <div className="image__info">
-            <div className="info__price">{this.props.price} руб.</div>
-            <div className="info__price-sale">{this.props.sale} руб.</div>
-            <div className="info__description">{this.props.description}</div>
+            <div className="info__price">{price} руб.</div>
+            <div className="info__price-sale">{sale} руб.</div>
+            <div className="info__description">{description}</div>
           </div>
         </div>
         <div className="card__button">
-          <button className="button__buy">Buy</button>
+          <button type="button" className="button__buy">
+            Buy
+          </button>
         </div>
       </div>
     );

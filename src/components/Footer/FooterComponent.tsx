@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import logo from '../../assets/logo.png';
 import './FooterComponent.module.scss';
 
+// eslint-disable-next-line react/prefer-stateless-function
 class FooterComponent extends React.Component {
   render() {
     return (
@@ -30,7 +31,7 @@ class FooterComponent extends React.Component {
                 </Link>
               </div>
               <div className="contact__item flex-item">
-                <Link to={`https://rs.school/`} className="footer-logo-container flex-item">
+                <Link to="https://rs.school/" className="footer-logo-container flex-item">
                   <svg
                     viewBox="0 0 52 37"
                     fill="none"
@@ -46,7 +47,7 @@ class FooterComponent extends React.Component {
                 </Link>
               </div>
               <div className="contact__item flex-item-end">
-                <Link to={`https://github.com/lobzhay`} className="nav-link">
+                <Link to="https://github.com/lobzhay" className="nav-link">
                   lobzhaY
                 </Link>
               </div>

@@ -38,6 +38,11 @@
   padding: 0 5px;
 }
 
+.header-login,
+.item-cursor {
+  cursor: not-allowed;
+}
+
 .call-info__time,
 .header-login__exit {
   border-right: none;
@@ -94,9 +99,7 @@
   list-style-type: none;
 }
 
-.navigation__item,
 .navigation__item-link {
-  padding: 0 20px;
   font-family: $text-font;
   font-style: normal;
   font-weight: 400;
@@ -105,4 +108,25 @@
   text-transform: uppercase;
   color: $text-color;
   text-decoration: none;
+}
+
+.navigation__item {
+  width: 120px;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+}
+
+.navigation__item:hover,
+.navigation__item-link:hover,
+.navigation__item-link-active,
+.navigation__item-link-active {
+  width: 120px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $color;
+  text-decoration: none;
+  background-color: $background-color-hover;
 }
