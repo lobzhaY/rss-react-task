@@ -1,7 +1,9 @@
 @import './styles/variables.scss';
 @import './pages/Root.module.scss';
 @import '../src/components/Footer/FooterComponent.module.scss';
-@import '../src//components/Header/HeaderComponent.module.scss';
+@import '../src/components/Header/HeaderComponent.module.scss';
+@import '../src/components/Title/TitleComponent.module.scss';
+@import '../src/components/Search/SearchComponent.module.scss';
 
 * {
   box-sizing: border-box;

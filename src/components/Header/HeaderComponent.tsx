@@ -41,7 +41,6 @@ class HeaderComponent extends React.Component {
                   <span className="material-symbols-outlined">shopping_cart</span>
                 </li>
               </ul>
-              <span className="material-symbols-outlined">search</span>
             </nav>
           </div>
         </div>

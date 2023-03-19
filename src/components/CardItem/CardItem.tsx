@@ -1,10 +1,10 @@
 import React from 'react';
 type cardItemPropsType = {
-  imageUrl: string,
-  price: string,
-  sale: string,
-  description: string,
-}
+  imageUrl: string;
+  price: string;
+  sale: string;
+  description: string;
+};
 class CardItem extends React.Component<cardItemPropsType> {
   constructor(props: cardItemPropsType) {
     super(props);
@@ -22,17 +22,12 @@ class CardItem extends React.Component<cardItemPropsType> {
             </div>
           </div>
           <div className="image__container">
-            <img
-              src={this.props.imageUrl}
-              alt="Product img"
-            />
+            <img src={this.props.imageUrl} alt="Product img" />
           </div>
           <div className="image__info">
             <div className="info__price">{this.props.price} руб.</div>
             <div className="info__price-sale">{this.props.sale} руб.</div>
-            <div className="info__description">
-              {this.props.description}
-            </div>
+            <div className="info__description">{this.props.description}</div>
           </div>
         </div>
         <div className="card__button">

@@ -1,7 +1,5 @@
 @import '../../styles/variables.scss';
 
-.header-container {}
-
 .header-container__header-info {
   height: 44px;
   display: flex;
@@ -13,8 +11,6 @@
   display: flex;
   align-items: center;
 }
-
-.material-symbols-outlined {}
 
 .header-info__call-info,
 .header-login {

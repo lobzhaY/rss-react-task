@@ -1,8 +1,9 @@
 import React from 'react';
+import TitleComponent from '../../components/Title/TitleComponent';
 
 class NotFoundPage extends React.Component {
   render() {
-    return <h2>Not Found Page</h2>;
+    return <TitleComponent name="404" />;
   }
 }
 
