@@ -8,7 +8,7 @@ import Root from './pages/Root';
 
 function App() {
   return (
-    <div className="app">
+    <div className="app" data-testid="app-component">
       <Routes>
         <Route path="/" element={<Root />}>
           <Route index element={<MainPage />} />

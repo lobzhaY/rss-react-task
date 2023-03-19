@@ -1,0 +1,271 @@
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Code coverage report for src/components/Footer/FooterComponent.tsx</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../prettify.css" />
+    <link rel="stylesheet" href="../../../base.css" />
+    <link rel="shortcut icon" type="image/x-icon" href="../../../favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+    
+<body>
+<div class='wrapper'>
+    <div class='pad1'>
+        <h1><a href="../../../index.html">All files</a> / <a href="index.html">src/components/Footer</a> FooterComponent.tsx</h1>
+        <div class='clearfix'>
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">17.74% </span>
+                <span class="quiet">Statements</span>
+                <span class='fraction'>11/62</span>
+            </div>
+        
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">100% </span>
+                <span class="quiet">Branches</span>
+                <span class='fraction'>0/0</span>
+            </div>
+        
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">0% </span>
+                <span class="quiet">Functions</span>
+                <span class='fraction'>0/1</span>
+            </div>
+        
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">17.74% </span>
+                <span class="quiet">Lines</span>
+                <span class='fraction'>11/62</span>
+            </div>
+        
+            
+        </div>
+        <p class="quiet">
+            Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
+        </p>
+        <template id="filterTemplate">
+            <div class="quiet">
+                Filter:
+                <input oninput="onInput()" type="search" id="fileSearch">
+            </div>
+        </template>
+    </div>
+    <div class='status-line low'></div>
+    <pre><table class="coverage">
+<tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
+<a name='L2'></a><a href='#L2'>2</a>
+<a name='L3'></a><a href='#L3'>3</a>
+<a name='L4'></a><a href='#L4'>4</a>
+<a name='L5'></a><a href='#L5'>5</a>
+<a name='L6'></a><a href='#L6'>6</a>
+<a name='L7'></a><a href='#L7'>7</a>
+<a name='L8'></a><a href='#L8'>8</a>
+<a name='L9'></a><a href='#L9'>9</a>
+<a name='L10'></a><a href='#L10'>10</a>
+<a name='L11'></a><a href='#L11'>11</a>
+<a name='L12'></a><a href='#L12'>12</a>
+<a name='L13'></a><a href='#L13'>13</a>
+<a name='L14'></a><a href='#L14'>14</a>
+<a name='L15'></a><a href='#L15'>15</a>
+<a name='L16'></a><a href='#L16'>16</a>
+<a name='L17'></a><a href='#L17'>17</a>
+<a name='L18'></a><a href='#L18'>18</a>
+<a name='L19'></a><a href='#L19'>19</a>
+<a name='L20'></a><a href='#L20'>20</a>
+<a name='L21'></a><a href='#L21'>21</a>
+<a name='L22'></a><a href='#L22'>22</a>
+<a name='L23'></a><a href='#L23'>23</a>
+<a name='L24'></a><a href='#L24'>24</a>
+<a name='L25'></a><a href='#L25'>25</a>
+<a name='L26'></a><a href='#L26'>26</a>
+<a name='L27'></a><a href='#L27'>27</a>
+<a name='L28'></a><a href='#L28'>28</a>
+<a name='L29'></a><a href='#L29'>29</a>
+<a name='L30'></a><a href='#L30'>30</a>
+<a name='L31'></a><a href='#L31'>31</a>
+<a name='L32'></a><a href='#L32'>32</a>
+<a name='L33'></a><a href='#L33'>33</a>
+<a name='L34'></a><a href='#L34'>34</a>
+<a name='L35'></a><a href='#L35'>35</a>
+<a name='L36'></a><a href='#L36'>36</a>
+<a name='L37'></a><a href='#L37'>37</a>
+<a name='L38'></a><a href='#L38'>38</a>
+<a name='L39'></a><a href='#L39'>39</a>
+<a name='L40'></a><a href='#L40'>40</a>
+<a name='L41'></a><a href='#L41'>41</a>
+<a name='L42'></a><a href='#L42'>42</a>
+<a name='L43'></a><a href='#L43'>43</a>
+<a name='L44'></a><a href='#L44'>44</a>
+<a name='L45'></a><a href='#L45'>45</a>
+<a name='L46'></a><a href='#L46'>46</a>
+<a name='L47'></a><a href='#L47'>47</a>
+<a name='L48'></a><a href='#L48'>48</a>
+<a name='L49'></a><a href='#L49'>49</a>
+<a name='L50'></a><a href='#L50'>50</a>
+<a name='L51'></a><a href='#L51'>51</a>
+<a name='L52'></a><a href='#L52'>52</a>
+<a name='L53'></a><a href='#L53'>53</a>
+<a name='L54'></a><a href='#L54'>54</a>
+<a name='L55'></a><a href='#L55'>55</a>
+<a name='L56'></a><a href='#L56'>56</a>
+<a name='L57'></a><a href='#L57'>57</a>
+<a name='L58'></a><a href='#L58'>58</a>
+<a name='L59'></a><a href='#L59'>59</a>
+<a name='L60'></a><a href='#L60'>60</a>
+<a name='L61'></a><a href='#L61'>61</a>
+<a name='L62'></a><a href='#L62'>62</a>
+<a name='L63'></a><a href='#L63'>63</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React from 'react';
+import { Link } from 'react-router-dom';
+import logo from '../../assets/logo.png';
+import './FooterComponent.module.scss';
+&nbsp;
+// eslint-disable-next-line react/prefer-stateless-function
+class FooterComponent extends React.Component {
+<span class="fstat-no" title="function not covered" >  render() {</span>
+<span class="cstat-no" title="statement not covered" >    return (</span>
+<span class="cstat-no" title="statement not covered" >      &lt;footer className="footer"&gt;</span>
+<span class="cstat-no" title="statement not covered" >        &lt;div className="margin-container"&gt;</span>
+<span class="cstat-no" title="statement not covered" >          &lt;div className="wrapper"&gt;</span>
+<span class="cstat-no" title="statement not covered" >            &lt;div className="footer__nav"&gt;</span>
+<span class="cstat-no" title="statement not covered" >              &lt;ul&gt;</span>
+<span class="cstat-no" title="statement not covered" >                &lt;li&gt;</span>
+<span class="cstat-no" title="statement not covered" >                  &lt;Link to="/" className="nav-link"&gt;</span>
+<span class="cstat-no" title="statement not covered" >                    Main</span>
+<span class="cstat-no" title="statement not covered" >                  &lt;/Link&gt;</span>
+<span class="cstat-no" title="statement not covered" >                &lt;/li&gt;</span>
+<span class="cstat-no" title="statement not covered" >                &lt;li&gt;</span>
+<span class="cstat-no" title="statement not covered" >                  &lt;Link to="aboutUs" className="nav-link"&gt;</span>
+<span class="cstat-no" title="statement not covered" >                    About Us</span>
+<span class="cstat-no" title="statement not covered" >                  &lt;/Link&gt;</span>
+<span class="cstat-no" title="statement not covered" >                &lt;/li&gt;</span>
+<span class="cstat-no" title="statement not covered" >              &lt;/ul&gt;</span>
+<span class="cstat-no" title="statement not covered" >            &lt;/div&gt;</span>
+<span class="cstat-no" title="statement not covered" >            &lt;div className="footer__contact"&gt;</span>
+<span class="cstat-no" title="statement not covered" >              &lt;div className="contact__item"&gt;</span>
+<span class="cstat-no" title="statement not covered" >                &lt;Link to="/" className="footer-logo-container flex-item-start"&gt;</span>
+<span class="cstat-no" title="statement not covered" >                  &lt;img src={logo} alt="OJJO" className="footer-logo" /&gt;</span>
+<span class="cstat-no" title="statement not covered" >                &lt;/Link&gt;</span>
+<span class="cstat-no" title="statement not covered" >              &lt;/div&gt;</span>
+<span class="cstat-no" title="statement not covered" >              &lt;div className="contact__item flex-item"&gt;</span>
+<span class="cstat-no" title="statement not covered" >                &lt;Link to="https://rs.school/" className="footer-logo-container flex-item"&gt;</span>
+<span class="cstat-no" title="statement not covered" >                  &lt;svg</span>
+<span class="cstat-no" title="statement not covered" >                    viewBox="0 0 52 37"</span>
+<span class="cstat-no" title="statement not covered" >                    fill="none"</span>
+<span class="cstat-no" title="statement not covered" >                    xmlns="http://www.w3.org/2000/svg"</span>
+<span class="cstat-no" title="statement not covered" >                    className="footer-logo footer-svg"</span>
+<span class="cstat-no" title="statement not covered" >                  &gt;</span>
+<span class="cstat-no" title="statement not covered" >                    &lt;path</span>
+<span class="cstat-no" title="statement not covered" >                      className="footer-logo"</span>
+<span class="cstat-no" title="statement not covered" >                      d="M0.25 36V1.09091H15.3182C17.9091 1.09091 20.1761 1.5625 22.1193 2.50568C24.0625 3.44886 25.5739 4.80682 26.6534 6.57955C27.733 8.35227 28.2727 10.4773 28.2727 12.9545C28.2727 15.4545 27.7159 17.5625 26.6023 19.2784C25.5 20.9943 23.9489 22.2898 21.9489 23.1648C19.9602 24.0398 17.6364 24.4773 14.9773 24.4773H5.97727V17.1136H13.0682C14.1818 17.1136 15.1307 16.9773 15.9148 16.7045C16.7102 16.4205 17.3182 15.9716 17.7386 15.358C18.1705 14.7443 18.3864 13.9432 18.3864 12.9545C18.3864 11.9545 18.1705 11.142 17.7386 10.517C17.3182 9.88068 16.7102 9.41477 15.9148 9.11932C15.1307 8.8125 14.1818 8.65909 13.0682 8.65909H9.72727V36H0.25ZM20.7045 19.9773L29.4318 36H19.1364L10.6136 19.9773H20.7045ZM41.5307 12C41.4398 10.8636 41.0136 9.97727 40.2523 9.34091C39.5023 8.70454 38.3602 8.38636 36.8261 8.38636C35.8489 8.38636 35.0477 8.50568 34.4227 8.74432C33.8091 8.97159 33.3545 9.28409 33.0591 9.68182C32.7636 10.0795 32.6102 10.5341 32.5989 11.0455C32.5761 11.4659 32.65 11.8466 32.8205 12.1875C33.0023 12.517 33.2864 12.8182 33.6727 13.0909C34.0591 13.3523 34.5534 13.5909 35.1557 13.8068C35.758 14.0227 36.4739 14.2159 37.3034 14.3864L40.167 15C42.0989 15.4091 43.7523 15.9489 45.1273 16.6193C46.5023 17.2898 47.6273 18.0795 48.5023 18.9886C49.3773 19.8864 50.0193 20.8977 50.4284 22.0227C50.8489 23.1477 51.0648 24.375 51.0761 25.7045C51.0648 28 50.4909 29.9432 49.3545 31.5341C48.2182 33.125 46.5932 34.3352 44.4795 35.1648C42.3773 35.9943 39.8489 36.4091 36.8943 36.4091C33.8602 36.4091 31.2125 35.9602 28.9511 35.0625C26.7011 34.1648 24.9511 32.7841 23.7011 30.9205C22.4625 29.0455 21.8375 26.6477 21.8261 23.7273H30.8261C30.883 24.7955 31.15 25.6932 31.6273 26.4205C32.1045 27.1477 32.775 27.6989 33.6386 28.0739C34.5136 28.4489 35.5534 28.6364 36.758 28.6364C37.7693 28.6364 38.6159 28.5114 39.2977 28.2614C39.9795 28.0114 40.4966 27.6648 40.8489 27.2216C41.2011 26.7784 41.383 26.2727 41.3943 25.7045C41.383 25.1705 41.2068 24.7045 40.8659 24.3068C40.5364 23.8977 39.9909 23.5341 39.2295 23.2159C38.4682 22.8864 37.4398 22.5795 36.1443 22.2955L32.667 21.5455C29.5761 20.875 27.1386 19.7557 25.3545 18.1875C23.5818 16.608 22.7011 14.4545 22.7125 11.7273C22.7011 9.51136 23.292 7.57386 24.4852 5.91477C25.6898 4.24432 27.3545 2.94318 29.4795 2.01136C31.6159 1.07954 34.0648 0.613635 36.8261 0.613635C39.6443 0.613635 42.0818 1.08523 44.1386 2.02841C46.1955 2.97159 47.7807 4.30114 48.8943 6.01705C50.0193 7.72159 50.5875 9.71591 50.5989 12H41.5307Z"</span>
+<span class="cstat-no" title="statement not covered" >                      fill="#C5C5C5"</span>
+<span class="cstat-no" title="statement not covered" >                    /&gt;</span>
+<span class="cstat-no" title="statement not covered" >                  &lt;/svg&gt;</span>
+<span class="cstat-no" title="statement not covered" >                &lt;/Link&gt;</span>
+<span class="cstat-no" title="statement not covered" >              &lt;/div&gt;</span>
+<span class="cstat-no" title="statement not covered" >              &lt;div className="contact__item flex-item-end"&gt;</span>
+<span class="cstat-no" title="statement not covered" >                &lt;Link to="https://github.com/lobzhay" className="nav-link"&gt;</span>
+<span class="cstat-no" title="statement not covered" >                  lobzhaY</span>
+<span class="cstat-no" title="statement not covered" >                &lt;/Link&gt;</span>
+<span class="cstat-no" title="statement not covered" >              &lt;/div&gt;</span>
+<span class="cstat-no" title="statement not covered" >            &lt;/div&gt;</span>
+<span class="cstat-no" title="statement not covered" >          &lt;/div&gt;</span>
+<span class="cstat-no" title="statement not covered" >        &lt;/div&gt;</span>
+<span class="cstat-no" title="statement not covered" >      &lt;/footer&gt;</span>
+<span class="cstat-no" title="statement not covered" >    );</span>
+<span class="cstat-no" title="statement not covered" >  }</span>
+}
+&nbsp;
+export default FooterComponent;
+&nbsp;</pre></td></tr></table></pre>
+
+                <div class='push'></div><!-- for sticky footer -->
+            </div><!-- /wrapper -->
+            <div class='footer quiet pad2 space-top1 center small'>
+                Code coverage generated by
+                <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
+                at 2023-03-19T21:59:22.509Z
+            </div>
+        <script src="../../../prettify.js"></script>
+        <script>
+            window.onload = function () {
+                prettyPrint();
+            };
+        </script>
+        <script src="../../../sorter.js"></script>
+        <script src="../../../block-navigation.js"></script>
+    </body>
+</html>
+    
