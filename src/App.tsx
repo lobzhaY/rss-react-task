@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.scss';
-import { Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
 import MainPage from './pages/MainPage/MainPage';
 import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
 import AboutUsPage from './pages/AboutUsPage/AboutUsPage';
@@ -13,9 +13,9 @@ function App() {
         <Route path="/" element={<Root />}>
           <Route index element={<MainPage />} />
           <Route path="/aboutUs" element={<AboutUsPage />} />
-          <Route path="/notFount" element={<NotFoundPage />} />
+          <Route path="/404" element={<NotFoundPage />} />
         </Route>
-        <Route path="*" element={<NotFoundPage />} />
+        <Route path="*" element={<Navigate replace to="/404" />} />
       </Routes>
     </div>
   );
