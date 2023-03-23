@@ -53,6 +53,16 @@ class HeaderComponent extends React.Component {
                     About us
                   </NavLink>
                 </li>
+                <li className="navigation__item">
+                  <NavLink
+                    to="/forms"
+                    className={({ isActive }) =>
+                      isActive ? `navigation__item-link-active` : 'navigation__item-link'
+                    }
+                  >
+                    Forms
+                  </NavLink>
+                </li>
                 <li className="navigation__item item-cursor">
                   <span className="material-symbols-outlined">shopping_cart</span>
                 </li>
