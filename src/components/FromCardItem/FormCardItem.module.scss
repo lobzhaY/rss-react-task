@@ -1,0 +1,70 @@
+@import '../../styles/variables.scss';
+
+.card-form {
+  width: 45%;
+  height: max-content;
+  padding: 5px 10px;
+  border-bottom: 1px solid #D6D6D6;
+  background-color: #191B1C;
+  margin-bottom: 40px;
+  display: flex;
+  justify-content: space-between;
+
+  .card-form__left {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+
+    .left-img-container {
+      width: 90%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      img {
+        width: 195px;
+        height: 194px;
+        object-fit: cover;
+        object-position: center;
+      }
+    }
+    
+    h3 {
+      background-color: #0F0F0F;
+      padding: 5px;
+      color: #D0D0D0;
+      font-family: $header-font;
+      font-size: 16px;
+      line-height: 19px;
+      height: 75px;
+      margin: 7px 10px;
+      text-align: center;
+    }
+  }
+
+  .card-form__right {
+    width: 47%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+}
+.form-checked__input {
+  width: 100%;
+  padding: 7px 0;
+  font-family: $text-font;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 150%;
+  color: $color;
+  font-size: 15px;
+  text-transform: uppercase;
+}
+.card-form__span {
+  color: $text-color;
+  font-size: 13px;
+  text-transform: lowercase;
+  margin-right: 10px;
+}

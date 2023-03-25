@@ -39,6 +39,7 @@
 .form-container {
   display: flex;
   justify-content: space-between;
+  margin-bottom: 15px;
 }
 
 .item-form-container {
@@ -60,6 +61,11 @@
 
 .item-form-container-last {
   width: 100%;
+  border-bottom: 1px solid $color;
+  padding-bottom: 7px;
+  margin-bottom: 70px;
+  display: flex;
+  flex-direction: column;
 }
 
 .form-label {

@@ -1,5 +1,6 @@
 @import '../../styles/variables.scss';
 @import '../../components/Form/FormComponent.module.scss';
+@import '../../components//FromCardItem/FormCardItem.module.scss';
 
 .top-form {
   width: 100%;
@@ -28,4 +29,10 @@
   width: 70%;
   margin-bottom: 100px;
   border-bottom: 3px solid #C4C4C4;
+}
+
+.list-container-form {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
 }

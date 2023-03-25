@@ -1,18 +1,38 @@
 import React from 'react';
-import FormComponent from '../../components/Form/FormComponent';
+import FormComponent, { IValidationState } from '../../components/Form/FormComponent';
+import FormCardItem from '../../components/FromCardItem/FormCardItem';
 import TitleComponent from '../../components/Title/TitleComponent';
 
 // eslint-disable-next-line react/prefer-stateless-function
 class FormsPage extends React.Component<
   Record<string, unknown>,
-  { file: string; cards: string[] }
+  { file: string; cards: IValidationState[] }
 > {
+  allCards: IValidationState[] = [];
+
   constructor(props = {}) {
     super(props);
     this.state = {
       file: '',
-      cards: [],
+      cards: [{}],
     };
+    this.updateAllCards = this.updateAllCards.bind(this);
+    this.updateFile = this.updateFile.bind(this);
+  }
+
+  updateFile(fileUrl: string) {
+    this.setState((previousState) => ({
+      ...previousState,
+      file: fileUrl,
+    }));
+  }
+
+  updateAllCards(card: IValidationState) {
+    this.allCards.push(card);
+    this.setState((previousState) => ({
+      ...previousState,
+      cards: this.allCards,
+    }));
   }
 
   render() {
@@ -26,15 +46,15 @@ class FormsPage extends React.Component<
               <div className="left-img">
                 <img
                   src={
-                    file
-                      ? 'URL.createObjectURL(file)'
+                    file !== ''
+                      ? file
                       : 'https://icon-library.com/images/no-image-icon/no-image-icon-0.jpg'
                   }
                   alt="Loading images"
                 />
               </div>
               <div className="right-form">
-                <FormComponent />
+                <FormComponent updateAllCards={this.updateAllCards} updateFile={this.updateFile} />
               </div>
             </div>
           </div>
@@ -45,6 +65,11 @@ class FormsPage extends React.Component<
           <div className="bottom-cards">
             <div className="margin-container">
               <TitleComponent name="New card" />
+              <div className="list-container-form">
+                <FormCardItem />
+                <FormCardItem />
+                <FormCardItem />
+              </div>
             </div>
           </div>
         )}
