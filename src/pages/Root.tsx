@@ -10,7 +10,7 @@ class Root extends React.Component {
     return (
       <div>
         <HeaderComponent />
-        <div className="container">
+        <div className="container" data-testid="main">
           <Outlet />
         </div>
         <FooterComponent />

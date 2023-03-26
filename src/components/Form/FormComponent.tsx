@@ -188,6 +188,7 @@ class FormComponent extends React.Component<
               description
             </label>
             <input
+              data-testid="forms-description__input"
               ref={this.refState.descriptionRef}
               placeholder="СЕРЕБРЯНЫЕ СЕРЬГИ С ЯНТАРЁМ"
               type="text"
@@ -204,7 +205,12 @@ class FormComponent extends React.Component<
             <label className="form-label" htmlFor="date">
               date of delivery
             </label>
-            <input type="date" ref={this.refState.deliveryRef} id="date" />
+            <input
+              data-testid="forms-delivery__input"
+              type="date"
+              ref={this.refState.deliveryRef}
+              id="date"
+            />
             {isValidate === false && typeof errorMessage.delivery === 'string' ? (
               <p className="invalid-message">{errorMessage.delivery}</p>
             ) : (
@@ -362,7 +368,7 @@ class FormComponent extends React.Component<
           )}
         </div>
         <div className="form-button">
-          <button type="button" onClick={this.handleSubmitClick}>
+          <button type="button" onClick={this.handleSubmitClick} data-testid="forms-submit">
             Submit
           </button>
         </div>

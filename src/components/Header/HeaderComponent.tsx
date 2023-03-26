@@ -55,6 +55,7 @@ class HeaderComponent extends React.Component {
                 </li>
                 <li className="navigation__item">
                   <NavLink
+                    data-testid="forms-route"
                     to="/forms"
                     className={({ isActive }) =>
                       isActive ? `navigation__item-link-active` : 'navigation__item-link'
