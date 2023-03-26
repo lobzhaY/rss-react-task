@@ -30,8 +30,9 @@
         object-position: center;
       }
     }
-    
+
     h3 {
+      width: 90%;
       background-color: #0F0F0F;
       padding: 5px;
       color: #D0D0D0;
@@ -51,6 +52,7 @@
     justify-content: space-evenly;
   }
 }
+
 .form-checked__input {
   width: 100%;
   padding: 7px 0;
@@ -62,6 +64,7 @@
   font-size: 15px;
   text-transform: uppercase;
 }
+
 .card-form__span {
   color: $text-color;
   font-size: 13px;

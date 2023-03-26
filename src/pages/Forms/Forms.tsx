@@ -1,7 +1,8 @@
 import React from 'react';
-import FormComponent, { IValidationState } from '../../components/Form/FormComponent';
+import FormComponent from '../../components/Form/FormComponent';
 import FormCardItem from '../../components/FromCardItem/FormCardItem';
 import TitleComponent from '../../components/Title/TitleComponent';
+import { IValidationState } from '../../interface/formInterface';
 
 // eslint-disable-next-line react/prefer-stateless-function
 class FormsPage extends React.Component<
@@ -14,7 +15,7 @@ class FormsPage extends React.Component<
     super(props);
     this.state = {
       file: '',
-      cards: [{}],
+      cards: [],
     };
     this.updateAllCards = this.updateAllCards.bind(this);
     this.updateFile = this.updateFile.bind(this);
@@ -33,6 +34,8 @@ class FormsPage extends React.Component<
       ...previousState,
       cards: this.allCards,
     }));
+    // eslint-disable-next-line
+    console.log(this.allCards);
   }
 
   render() {
@@ -66,9 +69,18 @@ class FormsPage extends React.Component<
             <div className="margin-container">
               <TitleComponent name="New card" />
               <div className="list-container-form">
-                <FormCardItem />
-                <FormCardItem />
-                <FormCardItem />
+                {cards.map((elem: IValidationState, index) => (
+                  <FormCardItem
+                    key={index.toString()}
+                    description={elem.description}
+                    delivery={elem.delivery}
+                    price={elem.price}
+                    discount={elem.discount}
+                    person={elem.person}
+                    file={elem.file}
+                    material={elem.material}
+                  />
+                ))}
               </div>
             </div>
           </div>

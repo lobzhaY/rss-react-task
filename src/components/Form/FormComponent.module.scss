@@ -8,6 +8,7 @@
   font-size: 13px;
   line-height: 150%;
   color: $color;
+  position: relative;
 }
 
 .form-button {
@@ -37,6 +38,7 @@
 }
 
 .form-container {
+  height: 70px;
   display: flex;
   justify-content: space-between;
   margin-bottom: 15px;
@@ -47,6 +49,7 @@
   border-bottom: 1px solid $color;
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 
 .form-discount {
@@ -66,6 +69,7 @@
   margin-bottom: 70px;
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 
 .form-label {
@@ -142,4 +146,24 @@ input[type="number"]:focus {
 
 input[type="radio"] {
   margin-right: 5px;
+}
+
+.invalid-message {
+  color: red;
+  position: absolute;
+  top: 60px;
+}
+
+.success-message {
+  color: $background-footer-color;
+  font-family: $header-font;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+  text-align: center;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  position: absolute;
+  top: -50px
 }
