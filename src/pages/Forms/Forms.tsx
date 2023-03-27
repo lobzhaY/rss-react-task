@@ -34,8 +34,6 @@ class FormsPage extends React.Component<
       ...previousState,
       cards: this.allCards,
     }));
-    // eslint-disable-next-line
-    console.log(this.allCards);
   }
 
   render() {

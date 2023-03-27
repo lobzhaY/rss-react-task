@@ -1,32 +1,16 @@
 import React from 'react';
-import { IErrorState, IValidationState } from '../../interface/formInterface';
+import {
+  IDiscount,
+  IErrorState,
+  IFile,
+  IFileState,
+  IForm,
+  IMaterial,
+  IRef,
+  ISelect,
+  IValidationState,
+} from '../../interface/formInterface';
 import validationUtils from '../../utils/validationUtils';
-
-interface IRef {
-  [key: string]: React.RefObject<HTMLInputElement>;
-}
-interface IForm {
-  formRef: React.RefObject<HTMLFormElement>;
-}
-interface ISelect {
-  [key: string]: React.RefObject<HTMLSelectElement>;
-}
-
-interface IDiscount {
-  [key: string]: React.RefObject<HTMLInputElement>;
-}
-
-interface IMaterial {
-  [key: string]: React.RefObject<HTMLInputElement>;
-}
-
-interface IFile {
-  [key: string]: React.RefObject<HTMLInputElement>;
-}
-
-interface IFileState {
-  [key: string]: File | null;
-}
 
 // eslint-disable-next-line react/prefer-stateless-function
 class FormComponent extends React.Component<
@@ -79,7 +63,6 @@ class FormComponent extends React.Component<
   constructor(props: { updateAllCards: () => void; updateFile: () => void }) {
     super(props);
     this.state = {
-      // eslint-disable-next-line
       isModalActive: false,
       isValidate: false,
       errorMessage: {},
@@ -90,7 +73,7 @@ class FormComponent extends React.Component<
   }
 
   handleSubmitClick = () => {
-    const { updateAllCards } = this.props;
+    const { updateAllCards, updateFile } = this.props;
 
     const validateState: IValidationState = {
       description: '',
@@ -110,11 +93,15 @@ class FormComponent extends React.Component<
       }
     });
 
-    // eslint-disable-next-line
-    this.fileState.file = this.refFile.fileRef.current!.files![0];
+    const [fileDec] = this.refFile.fileRef.current!.files as FileList;
+    this.fileState.file = fileDec;
 
-    const objectURL = URL.createObjectURL(this.refFile.fileRef.current!.files![0] as Blob);
-    validateState.file = objectURL;
+    if (fileDec !== undefined) {
+      const objectURL = URL.createObjectURL(this.refFile.fileRef.current!.files![0] as Blob);
+      validateState.file = objectURL;
+    } else {
+      validateState.file = '';
+    }
 
     validateState.person = this.refSelect.personRef.current!.value;
 
@@ -158,6 +145,8 @@ class FormComponent extends React.Component<
 
       this.refForm.formRef.current!.reset();
 
+      updateFile('');
+
       setTimeout(() => {
         this.setState({
           errorMessage: {},
@@ -169,12 +158,14 @@ class FormComponent extends React.Component<
   };
 
   changeFormPhoto() {
-    // eslint-disable-next-line
-    this.fileState.file = this.refFile.fileRef.current!.files![0];
+    const { updateFile } = this.props;
+
+    const [fileDec] = this.refFile.fileRef.current!.files as FileList;
+    this.fileState.file = fileDec;
 
     const objectURL = URL.createObjectURL(this.refFile.fileRef.current!.files![0] as Blob);
-    // eslint-disable-next-line
-    this.props.updateFile(objectURL);
+
+    updateFile(objectURL);
   }
 
   render() {
@@ -295,6 +286,7 @@ class FormComponent extends React.Component<
               FOR WHOM
             </label>
             <select id="person" ref={this.refSelect.personRef}>
+              <option value="">Choose for whom</option>
               <option value="women">For women</option>
               <option value="men">For men</option>
               <option value="unisex">Unisex</option>
