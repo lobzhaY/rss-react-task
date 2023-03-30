@@ -4,19 +4,16 @@ import HeaderComponent from '../components/Header/HeaderComponent';
 import FooterComponent from '../components/Footer/FooterComponent';
 import './Root.module.scss';
 
-// eslint-disable-next-line react/prefer-stateless-function
-class Root extends React.Component {
-  render() {
-    return (
-      <div>
-        <HeaderComponent />
-        <div className="container" data-testid="main">
-          <Outlet />
-        </div>
-        <FooterComponent />
+function Root() {
+  return (
+    <div>
+      <HeaderComponent />
+      <div className="container" data-testid="main">
+        <Outlet />
       </div>
-    );
-  }
+      <FooterComponent />
+    </div>
+  );
 }
 
 export default Root;
