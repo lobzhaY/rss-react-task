@@ -4,7 +4,7 @@ import earrings, { EarringsType } from '../../db/db';
 import TitleComponent from '../../components/Title/TitleComponent';
 import SearchComponent from '../../components/Search/SearchComponent';
 
-function MainPage() {
+export default function MainPage() {
   return (
     <>
       <TitleComponent name="Main page" />
@@ -25,5 +25,3 @@ function MainPage() {
     </>
   );
 }
-
-export default MainPage;

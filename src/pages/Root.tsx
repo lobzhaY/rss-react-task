@@ -4,7 +4,7 @@ import HeaderComponent from '../components/Header/HeaderComponent';
 import FooterComponent from '../components/Footer/FooterComponent';
 import './Root.module.scss';
 
-function Root() {
+export default function Root() {
   return (
     <div>
       <HeaderComponent />
@@ -15,5 +15,3 @@ function Root() {
     </div>
   );
 }
-
-export default Root;

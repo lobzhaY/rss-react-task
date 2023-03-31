@@ -4,7 +4,7 @@ import FormCardItem from '../../components/FromCardItem/FormCardItem';
 import TitleComponent from '../../components/Title/TitleComponent';
 import { IValidationState } from '../../interface/formInterface';
 
-function FormsPage() {
+export default function FormsPage() {
   const allCards: IValidationState[] = React.useMemo(() => [], []);
 
   const [file, setFile] = React.useState('');
@@ -70,5 +70,3 @@ function FormsPage() {
     </>
   );
 }
-
-export default FormsPage;
