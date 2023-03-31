@@ -4,88 +4,71 @@ import FormCardItem from '../../components/FromCardItem/FormCardItem';
 import TitleComponent from '../../components/Title/TitleComponent';
 import { IValidationState } from '../../interface/formInterface';
 
-// eslint-disable-next-line react/prefer-stateless-function
-class FormsPage extends React.Component<
-  Record<string, unknown>,
-  { file: string; cards: IValidationState[] }
-> {
-  allCards: IValidationState[] = [];
+function FormsPage() {
+  const allCards: IValidationState[] = React.useMemo(() => [], []);
 
-  constructor(props = {}) {
-    super(props);
-    this.state = {
-      file: '',
-      cards: [],
-    };
-    this.updateAllCards = this.updateAllCards.bind(this);
-    this.updateFile = this.updateFile.bind(this);
-  }
+  const [file, setFile] = React.useState('');
+  const [cards, setCards] = React.useState<IValidationState[]>([]);
 
-  updateFile(fileUrl: string) {
-    this.setState((previousState) => ({
-      ...previousState,
-      file: fileUrl,
-    }));
-  }
+  const updateFile = React.useCallback((fileUrl: string) => {
+    setFile(fileUrl);
+  }, []);
 
-  updateAllCards(card: IValidationState) {
-    this.allCards.push(card);
-    this.setState((previousState) => ({
-      ...previousState,
-      cards: this.allCards,
-    }));
-  }
+  const updateAllCards = React.useCallback(
+    (card: IValidationState) => {
+      allCards.push(card);
+      setCards(allCards);
+    },
+    [allCards]
+  );
 
-  render() {
-    const { file, cards } = this.state;
-    return (
-      <>
-        <div className="top-form">
-          <div className="margin-container">
-            <TitleComponent name="Create a card" />
-            <div className="wrapper-flex">
-              <div className="left-img">
-                <img
-                  src={
-                    file !== ''
-                      ? file
-                      : 'https://icon-library.com/images/no-image-icon/no-image-icon-0.jpg'
-                  }
-                  alt="Loading images"
-                />
-              </div>
-              <div className="right-form">
-                <FormComponent updateAllCards={this.updateAllCards} updateFile={this.updateFile} />
-              </div>
+  return (
+    <>
+      <div className="top-form">
+        <div className="margin-container">
+          <TitleComponent name="Create a card" />
+          <div className="wrapper-flex">
+            <div className="left-img">
+              <img
+                src={
+                  file !== ''
+                    ? file
+                    : 'https://icon-library.com/images/no-image-icon/no-image-icon-0.jpg'
+                }
+                alt="Loading images"
+              />
+            </div>
+            <div className="right-form">
+              <FormComponent updateAllCards={updateAllCards} updateFile={updateFile} />
             </div>
           </div>
         </div>
-        {cards.length === 0 ? (
-          ''
-        ) : (
-          <div className="bottom-cards">
-            <div className="margin-container">
-              <TitleComponent name="New card" />
-              <div className="list-container-form">
-                {cards.map((elem: IValidationState, index) => (
-                  <FormCardItem
-                    key={index.toString()}
-                    description={elem.description}
-                    delivery={elem.delivery}
-                    price={elem.price}
-                    discount={elem.discount}
-                    person={elem.person}
-                    file={elem.file}
-                    material={elem.material}
-                  />
-                ))}
-              </div>
+      </div>
+      {cards.length === 0 ? (
+        ''
+      ) : (
+        <div className="bottom-cards">
+          <div className="margin-container">
+            <TitleComponent name="New card" />
+            <div className="list-container-form">
+              {cards.map((elem: IValidationState, index) => (
+                <FormCardItem
+                  key={index.toString()}
+                  description={elem.description}
+                  delivery={elem.delivery}
+                  price={elem.price}
+                  discount={elem.discount}
+                  person={elem.person}
+                  file={elem.file}
+                  material={elem.material}
+                />
+              ))}
             </div>
           </div>
-        )}
-      </>
-    );
-  }
+        </div>
+      )}
+    </>
+  );
 }
 
 export default FormsPage;
