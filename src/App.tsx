@@ -7,7 +7,7 @@ import AboutUsPage from './pages/AboutUsPage/AboutUsPage';
 import Root from './pages/Root';
 import FormsPage from './pages/Forms/Forms';
 
-function App() {
+export default function App() {
   return (
     <div className="app" data-testid="app-component">
       <Routes>
@@ -22,5 +22,3 @@ function App() {
     </div>
   );
 }
-
-export default App;

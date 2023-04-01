@@ -14,7 +14,7 @@
     "skipLibCheck": true,
     "baseUrl": "./src",
     "resolveJsonModule": true,
-    "outDir": "./dist",
+    "outDir": "./build",
     "types": ["vitest/globals"/* , "@testing-library/jest-dom" */]
   },
   "include": ["vite.config.ts", ".eslintrc.json", "./jest-setup.ts", "./src/**/*", "styled.d.ts"]

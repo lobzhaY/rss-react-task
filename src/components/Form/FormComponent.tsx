@@ -12,41 +12,39 @@ import {
 } from '../../interface/formInterface';
 import validationUtils from '../../utils/validationUtils';
 
-// eslint-disable-next-line react/prefer-stateless-function
-class FormComponent extends React.Component<
-  { updateAllCards: (card: IValidationState) => void; updateFile: (fileUrl: string) => void },
-  {
-    isModalActive: boolean;
-    isValidate: boolean;
-    errorMessage: IErrorState;
-  }
-> {
-  fileState: IFileState = {
+export default function FormComponent({
+  updateAllCards,
+  updateFile,
+}: {
+  updateAllCards: (card: IValidationState) => void;
+  updateFile: (fileUrl: string) => void;
+}) {
+  const fileState: IFileState = {
     file: null,
   };
 
-  refState: IRef = {
+  const refState: IRef = {
     descriptionRef: React.createRef(),
     deliveryRef: React.createRef(),
     priceRef: React.createRef(),
   };
 
-  refSelect: ISelect = {
+  const refSelect: ISelect = {
     personRef: React.createRef(),
   };
 
-  refFile: IFile = {
+  const refFile: IFile = {
     fileRef: React.createRef(),
   };
 
-  refDiscount: IDiscount = {
+  const refDiscount: IDiscount = {
     discount0Ref: React.createRef(),
     discount5Ref: React.createRef(),
     discount10Ref: React.createRef(),
     discount15Ref: React.createRef(),
   };
 
-  refMaterial: IMaterial = {
+  const refMaterial: IMaterial = {
     pinkGoldRef: React.createRef(),
     whiteGoldRef: React.createRef(),
     combinedGoldRef: React.createRef(),
@@ -56,25 +54,15 @@ class FormComponent extends React.Component<
     silverGildedRef: React.createRef(),
   };
 
-  refForm: IForm = {
+  const refForm: IForm = {
     formRef: React.createRef(),
   };
 
-  constructor(props: { updateAllCards: () => void; updateFile: () => void }) {
-    super(props);
-    this.state = {
-      isModalActive: false,
-      isValidate: false,
-      errorMessage: {},
-    };
+  const [isModalActive, setIsModalActive] = React.useState(false);
+  const [isValidate, setIsValidate] = React.useState(false);
+  const [errorMessage, setErrorMessage] = React.useState<IErrorState>({});
 
-    this.handleSubmitClick = this.handleSubmitClick.bind(this);
-    this.changeFormPhoto = this.changeFormPhoto.bind(this);
-  }
-
-  handleSubmitClick = () => {
-    const { updateAllCards, updateFile } = this.props;
-
+  const handleSubmitClick = () => {
     const validateState: IValidationState = {
       description: '',
       delivery: '',
@@ -86,36 +74,36 @@ class FormComponent extends React.Component<
     };
 
     const validateStateKeys = Object.keys(validateState);
-    const refStateKeys = Object.keys(this.refState);
+    const refStateKeys = Object.keys(refState);
     refStateKeys.forEach((elem, index) => {
       if (elem.slice(0, -3) === validateStateKeys[index]) {
-        validateState[validateStateKeys[index]] = this.refState[refStateKeys[index]].current!.value;
+        validateState[validateStateKeys[index]] = refState[refStateKeys[index]].current!.value;
       }
     });
 
-    const [fileDec] = this.refFile.fileRef.current!.files as FileList;
-    this.fileState.file = fileDec;
+    const [fileDec] = refFile.fileRef.current!.files as FileList;
+    fileState.file = fileDec;
 
     if (fileDec !== undefined) {
-      const objectURL = URL.createObjectURL(this.refFile.fileRef.current!.files![0] as Blob);
+      const objectURL = URL.createObjectURL(refFile.fileRef.current!.files![0] as Blob);
       validateState.file = objectURL;
     } else {
       validateState.file = '';
     }
 
-    validateState.person = this.refSelect.personRef.current!.value;
+    validateState.person = refSelect.personRef.current!.value;
 
-    const validateDiscountKeys = Object.keys(this.refDiscount);
+    const validateDiscountKeys = Object.keys(refDiscount);
     validateDiscountKeys.forEach((el) => {
-      if (this.refDiscount[el].current!.checked === true)
-        validateState.discount = this.refDiscount[el].current!.value;
+      if (refDiscount[el].current!.checked === true)
+        validateState.discount = refDiscount[el].current!.value;
     });
 
-    const validateMaterialKeys = Object.keys(this.refMaterial);
+    const validateMaterialKeys = Object.keys(refMaterial);
     const materialArr: string[] = [];
     validateMaterialKeys.forEach((el) => {
-      if (this.refMaterial[el].current!.checked === true) {
-        materialArr.push(this.refMaterial[el].current!.value);
+      if (refMaterial[el].current!.checked === true) {
+        materialArr.push(refMaterial[el].current!.value);
       }
     });
     validateState.material = materialArr.join();
@@ -129,244 +117,211 @@ class FormComponent extends React.Component<
       }
     });
     if (countResultValue > 0) {
-      this.setState((prevVal) => ({
-        ...prevVal,
-        isValidate: false,
-        errorMessage: resultValidate,
-      }));
+      setIsValidate(false);
+      setErrorMessage(resultValidate);
     } else {
-      this.setState((prevVal) => ({
-        ...prevVal,
-        isValidate: true,
-        isModalActive: true,
-      }));
+      setIsValidate(true);
+      setIsModalActive(true);
 
       updateAllCards(validateState);
 
-      this.refForm.formRef.current!.reset();
+      refForm.formRef.current!.reset();
 
       updateFile('');
 
       setTimeout(() => {
-        this.setState({
-          errorMessage: {},
-          isValidate: false,
-          isModalActive: false,
-        });
+        setErrorMessage({});
+        setIsModalActive(false);
+        setIsValidate(false);
       }, 5000);
     }
   };
 
-  changeFormPhoto() {
-    const { updateFile } = this.props;
+  const changeFormPhoto = () => {
+    const [fileDec] = refFile.fileRef.current!.files as FileList;
+    fileState.file = fileDec;
 
-    const [fileDec] = this.refFile.fileRef.current!.files as FileList;
-    this.fileState.file = fileDec;
-
-    const objectURL = URL.createObjectURL(this.refFile.fileRef.current!.files![0] as Blob);
+    const objectURL = URL.createObjectURL(refFile.fileRef.current!.files![0] as Blob);
 
     updateFile(objectURL);
-  }
+  };
 
-  render() {
-    const { isModalActive, isValidate, errorMessage } = this.state;
-    return (
-      <form className="form" ref={this.refForm.formRef}>
-        {isModalActive ? <p className="success-message">the data has been saved</p> : ''}
-        <div className="form-container">
-          <div className="item-form-container">
-            <label className="form-label" htmlFor="description">
-              description
-            </label>
-            <input
-              data-testid="forms-description__input"
-              ref={this.refState.descriptionRef}
-              placeholder="СЕРЕБРЯНЫЕ СЕРЬГИ С ЯНТАРЁМ"
-              type="text"
-              id="description"
-              name="description"
-            />
-            {isValidate === false && typeof errorMessage.description === 'string' ? (
-              <p className="invalid-message">{errorMessage.description}</p>
-            ) : (
-              ''
-            )}
-          </div>
-          <div className="item-form-container">
-            <label className="form-label" htmlFor="date">
-              date of delivery
-            </label>
-            <input
-              data-testid="forms-delivery__input"
-              type="date"
-              ref={this.refState.deliveryRef}
-              id="date"
-            />
-            {isValidate === false && typeof errorMessage.delivery === 'string' ? (
-              <p className="invalid-message">{errorMessage.delivery}</p>
-            ) : (
-              ''
-            )}
-          </div>
-        </div>
-        <div className="form-container">
-          <div className="item-form-container">
-            <label className="form-label" htmlFor="price">
-              price
-            </label>
-            <input type="number" ref={this.refState.priceRef} placeholder="722.40" id="price" />
-            {isValidate === false && typeof errorMessage.price === 'string' ? (
-              <p className="invalid-message">{errorMessage.price}</p>
-            ) : (
-              ''
-            )}
-          </div>
-          <div className="item-form-container">
-            <p className="form-label">Discount</p>
-            <div className="form-discount">
-              <div>
-                <input
-                  name="discount"
-                  ref={this.refDiscount.discount0Ref}
-                  id="0"
-                  type="radio"
-                  value="0"
-                />
-                <label htmlFor="0" className="form-label">
-                  without discount
-                </label>
-              </div>
-              <div>
-                <input
-                  name="discount"
-                  ref={this.refDiscount.discount5Ref}
-                  id="5"
-                  type="radio"
-                  value="5"
-                />
-                <label htmlFor="5" className="form-label">
-                  5%
-                </label>
-              </div>
-              <div>
-                <input
-                  name="discount"
-                  ref={this.refDiscount.discount10Ref}
-                  id="10"
-                  type="radio"
-                  value="10"
-                />
-                <label htmlFor="10" className="form-label">
-                  10%
-                </label>
-              </div>
-              <div>
-                <input
-                  name="discount"
-                  ref={this.refDiscount.discount15Ref}
-                  id="15"
-                  type="radio"
-                  value="15"
-                />
-                <label htmlFor="15" className="form-label">
-                  15%
-                </label>
-              </div>
-            </div>
-            {isValidate === false && typeof errorMessage.discount === 'string' ? (
-              <p className="invalid-message">{errorMessage.discount}</p>
-            ) : (
-              ''
-            )}
-          </div>
-        </div>
-        <div className="form-container">
-          <div className="item-form-container">
-            <label htmlFor="person" className="form-label">
-              FOR WHOM
-            </label>
-            <select id="person" ref={this.refSelect.personRef}>
-              <option value="">Choose for whom</option>
-              <option value="women">For women</option>
-              <option value="men">For men</option>
-              <option value="unisex">Unisex</option>
-              <option value="children">For children</option>
-            </select>
-            {isValidate === false && typeof errorMessage.person === 'string' ? (
-              <p className="invalid-message">{errorMessage.person}</p>
-            ) : (
-              ''
-            )}
-          </div>
-          <div className="item-form-container">
-            <label className="form-label label-file" htmlFor="file">
-              Image
-              <span className="material-symbols-outlined label-file-icon">drive_folder_upload</span>
-            </label>
-            <input
-              type="file"
-              accept="image/png, image/gif, image/jpeg, image/jpg"
-              id="file"
-              style={{ display: 'none' }}
-              ref={this.refFile.fileRef}
-              onChange={this.changeFormPhoto}
-            />
-            {isValidate === false && typeof errorMessage.file === 'string' ? (
-              <p className="invalid-message">{errorMessage.file}</p>
-            ) : (
-              ''
-            )}
-          </div>
-        </div>
-        <div className="item-form-container-last">
-          <p className="form-label"> TYPE OF METAL</p>
-          <div className="form-discount">
-            <label className="form-label">
-              <input type="checkbox" ref={this.refMaterial.pinkGoldRef} value="Pink gold" /> Pink
-              gold
-            </label>
-            <label className="form-label">
-              <input type="checkbox" ref={this.refMaterial.whiteGoldRef} value="White gold" /> White
-              gold
-            </label>
-            <label className="form-label">
-              <input type="checkbox" ref={this.refMaterial.combinedGoldRef} value="Combined Gold" />
-              Combined Gold
-            </label>
-            <label className="form-label">
-              <input type="checkbox" ref={this.refMaterial.yellowGoldRef} value="Yellow Gold" />
-              Yellow Gold
-            </label>
-            <label className="form-label">
-              <input type="checkbox" ref={this.refMaterial.silverRef} value="Silver" /> Silver
-            </label>
-            <label className="form-label">
-              <input
-                type="checkbox"
-                ref={this.refMaterial.combinedSilverRef}
-                value="Combined Silver"
-              />
-              Combined Silver
-            </label>
-            <label className="form-label">
-              <input type="checkbox" ref={this.refMaterial.silverGildedRef} value="Silver Gilded" />
-              Silver Gilded
-            </label>
-          </div>
-          {isValidate === false && typeof errorMessage.material === 'string' ? (
-            <p className="invalid-message">{errorMessage.material}</p>
+  return (
+    <form className="form" ref={refForm.formRef}>
+      {isModalActive ? <p className="success-message">the data has been saved</p> : ''}
+      <div className="form-container">
+        <div className="item-form-container">
+          <label className="form-label" htmlFor="description">
+            description
+          </label>
+          <input
+            data-testid="forms-description__input"
+            ref={refState.descriptionRef}
+            placeholder="СЕРЕБРЯНЫЕ СЕРЬГИ С ЯНТАРЁМ"
+            type="text"
+            id="description"
+            name="description"
+          />
+          {isValidate === false && typeof errorMessage.description === 'string' ? (
+            <p className="invalid-message">{errorMessage.description}</p>
           ) : (
             ''
           )}
         </div>
-        <div className="form-button">
-          <button type="button" onClick={this.handleSubmitClick} data-testid="forms-submit">
-            Submit
-          </button>
+        <div className="item-form-container">
+          <label className="form-label" htmlFor="date">
+            date of delivery
+          </label>
+          <input
+            data-testid="forms-delivery__input"
+            type="date"
+            ref={refState.deliveryRef}
+            id="date"
+          />
+          {isValidate === false && typeof errorMessage.delivery === 'string' ? (
+            <p className="invalid-message">{errorMessage.delivery}</p>
+          ) : (
+            ''
+          )}
         </div>
-      </form>
-    );
-  }
+      </div>
+      <div className="form-container">
+        <div className="item-form-container">
+          <label className="form-label" htmlFor="price">
+            price
+          </label>
+          <input type="number" ref={refState.priceRef} placeholder="722.40" id="price" />
+          {isValidate === false && typeof errorMessage.price === 'string' ? (
+            <p className="invalid-message">{errorMessage.price}</p>
+          ) : (
+            ''
+          )}
+        </div>
+        <div className="item-form-container">
+          <p className="form-label">Discount</p>
+          <div className="form-discount">
+            <div>
+              <input name="discount" ref={refDiscount.discount0Ref} id="0" type="radio" value="0" />
+              <label htmlFor="0" className="form-label">
+                without discount
+              </label>
+            </div>
+            <div>
+              <input name="discount" ref={refDiscount.discount5Ref} id="5" type="radio" value="5" />
+              <label htmlFor="5" className="form-label">
+                5%
+              </label>
+            </div>
+            <div>
+              <input
+                name="discount"
+                ref={refDiscount.discount10Ref}
+                id="10"
+                type="radio"
+                value="10"
+              />
+              <label htmlFor="10" className="form-label">
+                10%
+              </label>
+            </div>
+            <div>
+              <input
+                name="discount"
+                ref={refDiscount.discount15Ref}
+                id="15"
+                type="radio"
+                value="15"
+              />
+              <label htmlFor="15" className="form-label">
+                15%
+              </label>
+            </div>
+          </div>
+          {isValidate === false && typeof errorMessage.discount === 'string' ? (
+            <p className="invalid-message">{errorMessage.discount}</p>
+          ) : (
+            ''
+          )}
+        </div>
+      </div>
+      <div className="form-container">
+        <div className="item-form-container">
+          <label htmlFor="person" className="form-label">
+            FOR WHOM
+          </label>
+          <select id="person" ref={refSelect.personRef}>
+            <option value="">Choose for whom</option>
+            <option value="women">For women</option>
+            <option value="men">For men</option>
+            <option value="unisex">Unisex</option>
+            <option value="children">For children</option>
+          </select>
+          {isValidate === false && typeof errorMessage.person === 'string' ? (
+            <p className="invalid-message">{errorMessage.person}</p>
+          ) : (
+            ''
+          )}
+        </div>
+        <div className="item-form-container">
+          <label className="form-label label-file" htmlFor="file">
+            Image
+            <span className="material-symbols-outlined label-file-icon">drive_folder_upload</span>
+          </label>
+          <input
+            type="file"
+            accept="image/png, image/gif, image/jpeg, image/jpg"
+            id="file"
+            style={{ display: 'none' }}
+            ref={refFile.fileRef}
+            onChange={changeFormPhoto}
+          />
+          {isValidate === false && typeof errorMessage.file === 'string' ? (
+            <p className="invalid-message">{errorMessage.file}</p>
+          ) : (
+            ''
+          )}
+        </div>
+      </div>
+      <div className="item-form-container-last">
+        <p className="form-label"> TYPE OF METAL</p>
+        <div className="form-discount">
+          <label className="form-label">
+            <input type="checkbox" ref={refMaterial.pinkGoldRef} value="Pink gold" /> Pink gold
+          </label>
+          <label className="form-label">
+            <input type="checkbox" ref={refMaterial.whiteGoldRef} value="White gold" /> White gold
+          </label>
+          <label className="form-label">
+            <input type="checkbox" ref={refMaterial.combinedGoldRef} value="Combined Gold" />
+            Combined Gold
+          </label>
+          <label className="form-label">
+            <input type="checkbox" ref={refMaterial.yellowGoldRef} value="Yellow Gold" />
+            Yellow Gold
+          </label>
+          <label className="form-label">
+            <input type="checkbox" ref={refMaterial.silverRef} value="Silver" /> Silver
+          </label>
+          <label className="form-label">
+            <input type="checkbox" ref={refMaterial.combinedSilverRef} value="Combined Silver" />
+            Combined Silver
+          </label>
+          <label className="form-label">
+            <input type="checkbox" ref={refMaterial.silverGildedRef} value="Silver Gilded" />
+            Silver Gilded
+          </label>
+        </div>
+        {isValidate === false && typeof errorMessage.material === 'string' ? (
+          <p className="invalid-message">{errorMessage.material}</p>
+        ) : (
+          ''
+        )}
+      </div>
+      <div className="form-button">
+        <button type="button" onClick={handleSubmitClick} data-testid="forms-submit">
+          Submit
+        </button>
+      </div>
+    </form>
+  );
 }
-
-export default FormComponent;

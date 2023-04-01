@@ -1,7 +1,7 @@
 import React, { ChangeEvent } from 'react';
 
 export default function SearchComponent() {
-  const [searchValue, setSearchValue] = React.useState('');
+  const [searchValue, setSearchValue] = React.useState(localStorage.getItem('searchValue') || '');
 
   function saveValue(event: ChangeEvent<HTMLInputElement>): void {
     const target = event.target as HTMLInputElement;

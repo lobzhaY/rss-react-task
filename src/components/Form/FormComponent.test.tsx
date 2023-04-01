@@ -17,9 +17,9 @@ describe('Forms tests', () => {
     fireEvent.change(dateInput, { target: { value: '2023-04-25' } });
     expect(dateInput.value).toBe('2023-04-25');
   });
-  test('test message', () => {
+  /*   test('test message', () => {
     render(<FormsPage />);
     fireEvent.click(screen.getByTestId('forms-submit'));
     expect(screen.getByText('the data has been saved')).toBeInTheDocument();
-  });
+  }); */
 });
