@@ -18,9 +18,9 @@ describe('Search input tests', () => {
   });
   test('Save SearchComponent in localStorage', () => {
     const { unmount } = render(<SearchComponent />);
-    const searchInput = screen.getByTestId('search-input') as HTMLInputElement;
-    fireEvent.keyDown(searchInput, { target: { value: '23' } });
+    const searchInput = screen.getByTestId('search-input-data') as HTMLInputElement;
+    fireEvent.keyDown(searchInput, { target: { value: '1111' } });
     unmount();
-    expect(window.localStorage.searchValue).toBeDefined;
+    expect(window.localStorage.searchValue).toBeDefined();
   });
 });
