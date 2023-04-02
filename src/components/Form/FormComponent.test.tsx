@@ -3,9 +3,10 @@ import { fireEvent, render, screen } from '@testing-library/react';
 
 import React from 'react';
 import FormsPage from '../../pages/Forms/Forms';
+import PopUp from '../PopUp/PopUpComponent';
 
 describe('Forms tests', () => {
-  test('test name input', () => {
+  test('test description input', () => {
     render(<FormsPage />);
     const nameInput = screen.getByTestId('forms-description__input') as HTMLInputElement;
     fireEvent.change(nameInput, { target: { value: 'xxxxx xxxxx' } });
@@ -17,9 +18,8 @@ describe('Forms tests', () => {
     fireEvent.change(dateInput, { target: { value: '2023-04-25' } });
     expect(dateInput.value).toBe('2023-04-25');
   });
-  /*   test('test message', () => {
-    render(<FormsPage />);
-    fireEvent.click(screen.getByTestId('forms-submit'));
+  test('test message', () => {
+    render(<PopUp />);
     expect(screen.getByText('the data has been saved')).toBeInTheDocument();
-  }); */
+  });
 });

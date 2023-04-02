@@ -28,6 +28,7 @@ export default function SearchComponent() {
         placeholder={searchValue === '' ? 'Search...' : ''}
         value={searchValue === '' ? '' : searchValue}
         onChange={saveValue}
+        data-testid="search-input-data"
       />
       <span className="material-symbols-outlined">search</span>
     </div>
