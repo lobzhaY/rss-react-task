@@ -1,10 +1,16 @@
 import React from 'react';
 import { IInputCheckbox } from '../../../interface/inputsInterface';
 
-export default function InputCheckbox({ inputRef, inputValue, val }: IInputCheckbox) {
+export default function InputCheckbox({ inputValue, val, hookRegister }: IInputCheckbox) {
   return (
     <label className="form-label">
-      <input type="checkbox" ref={inputRef} value={inputValue} /> {val}
+      <input
+        type="checkbox"
+        value={inputValue}
+        /* eslint-disable-next-line react/jsx-props-no-spreading */
+        {...hookRegister}
+      />{' '}
+      {val}
     </label>
   );
 }

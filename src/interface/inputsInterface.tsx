@@ -1,37 +1,51 @@
-import { IErrorState } from './formInterface';
+import { FieldError, FieldErrorsImpl, Merge } from 'react-hook-form';
 
 export interface IInputNumberDateText {
   label: string;
   id: string;
   type: string;
   placeholder?: string;
-  isValidate: boolean;
-  errorMessage: IErrorState;
-  inputRef: React.RefObject<HTMLInputElement>;
   testId?: string;
+  hookError: FieldError | Merge<FieldError, FieldErrorsImpl> | undefined;
+  hookRegister: JSX.IntrinsicAttributes &
+    React.ClassAttributes<HTMLInputElement> &
+    React.InputHTMLAttributes<HTMLInputElement>;
 }
 
 export interface IInputCheckbox {
   inputValue: string;
-  inputRef: React.RefObject<HTMLInputElement>;
   val: string;
+  hookRegister: JSX.IntrinsicAttributes &
+    React.ClassAttributes<HTMLInputElement> &
+    React.InputHTMLAttributes<HTMLInputElement>;
 }
 
 export interface IInputFile {
   label: string;
   id: string;
   type: string;
-  isValidate: boolean;
-  inputRef: React.RefObject<HTMLInputElement>;
-  errorMessage: IErrorState;
-  onChangeFunc: () => void;
+  hookError: FieldError | Merge<FieldError, FieldErrorsImpl> | undefined;
+  hookRegister: JSX.IntrinsicAttributes &
+    React.ClassAttributes<HTMLInputElement> &
+    React.InputHTMLAttributes<HTMLInputElement>;
 }
 
 export interface IInputRadio {
   nameInput: string;
-  inputRef: React.RefObject<HTMLInputElement>;
   id: string;
   type: string;
   value: string;
   label: string;
+  hookRegister: JSX.IntrinsicAttributes &
+    React.ClassAttributes<HTMLInputElement> &
+    React.InputHTMLAttributes<HTMLInputElement>;
+}
+
+export interface IInputSelect {
+  label: string;
+  id: string;
+  hookError: FieldError | Merge<FieldError, FieldErrorsImpl> | undefined;
+  hookRegister: JSX.IntrinsicAttributes &
+    React.ClassAttributes<HTMLSelectElement> &
+    React.SelectHTMLAttributes<HTMLSelectElement>;
 }

@@ -1,86 +1,56 @@
-import { IErrorState, IValidationState } from '../interface/formInterface';
+import {
+  ERROR_MESSAGE_DELIVERY_PAST,
+  ERROR_MESSAGE_DELIVERY_THIS_YEAR,
+  ERROR_MESSAGE_DESCRIPTION_LENGTH,
+  ERROR_MESSAGE_DESCRIPTION_ONLY_LETTER,
+  ERROR_MESSAGE_DESCRIPTION_WORD_LENGTH,
+  ERROR_MESSAGE_NUMBER_FORMAT,
+  ERROR_MESSAGE_NUMBER_LENGTH,
+} from '../constants/constants';
 
-function validationPriceField(validationState: IValidationState, key: string): string | boolean {
-  let errorResponse: string | boolean = '';
-  const price = validationState[key];
-
+export function validationPriceField(priceForm: string): string | boolean {
+  let errorResponse: string | boolean;
+  const price = priceForm.toString();
   if (price.length > 8) {
-    errorResponse = 'Enter a value from the range "10.00" - "99999.99"';
+    errorResponse = ERROR_MESSAGE_NUMBER_LENGTH;
   } else if (price.indexOf('.') === -1 || price.indexOf('.') !== price.length - 3) {
-    errorResponse = 'Enter a value according to the format "XX.XX"';
+    errorResponse = ERROR_MESSAGE_NUMBER_FORMAT;
   } else {
     errorResponse = true;
   }
   return errorResponse;
 }
 
-function validationDescriptionField(
-  validationState: IValidationState,
-  key: string
-): string | boolean {
+export function validationDescriptionField(descriptionForm: string): string | boolean {
   let errorResponse: string | boolean = '';
-  const description = validationState[key].split(' ');
-
+  const description = descriptionForm.split(' ');
   if (description.length < 2) {
-    errorResponse = 'The field value must be at least two words long';
+    errorResponse = ERROR_MESSAGE_DESCRIPTION_LENGTH;
   } else if (description[0].length < 5 || description[1].length < 5) {
-    errorResponse = 'The minimum length of the words must be five characters';
+    errorResponse = ERROR_MESSAGE_DESCRIPTION_WORD_LENGTH;
   } else if (!/^[A-ZА-ЯЁ]+$/i.test(description[0]) || !/^[A-ZА-ЯЁ]+$/i.test(description[1])) {
-    errorResponse = 'The first two words must contain only letters';
+    errorResponse = ERROR_MESSAGE_DESCRIPTION_ONLY_LETTER;
   } else {
     errorResponse = true;
   }
   return errorResponse;
 }
 
-function validationDeliveryField(validationState: IValidationState, key: string): string | boolean {
+export function validationDeliveryField(deliveryForm: string): string | boolean {
   let errorResponse: string | boolean = '';
-  const delivery = new Date(validationState[key]);
+  const delivery = new Date(deliveryForm);
   const now = new Date().toISOString().slice(0, 10);
   const today = new Date(now);
 
   if (delivery.getTime() < today.getTime()) {
-    errorResponse = 'Enter a date in the future, not the past';
+    errorResponse = ERROR_MESSAGE_DELIVERY_PAST;
   } else {
-    const inputDateArr = validationState[key].split('-');
-    if (parseInt(inputDateArr[0], 10) !== today.getFullYear()) {
-      errorResponse = 'Enter a future date this year';
+    const inputDateArr = delivery.getFullYear();
+    if (inputDateArr !== today.getFullYear()) {
+      errorResponse = ERROR_MESSAGE_DELIVERY_THIS_YEAR;
     } else {
       errorResponse = true;
     }
   }
-
   return errorResponse;
 }
-
-function validationUtils(validationState: IValidationState): IErrorState {
-  const errorSate: IErrorState = {};
-
-  const validationStateKey = Object.keys(validationState);
-  validationStateKey.forEach((key) => {
-    if (validationState[key] !== '') {
-      errorSate[key] = true;
-    } else {
-      errorSate[key] = 'Please fill in the field';
-    }
-  });
-
-  const errorStateKeys = Object.keys(errorSate);
-  errorStateKeys.forEach((key) => {
-    if (errorSate[key] === true) {
-      if (key === 'price') {
-        errorSate[key] = validationPriceField(validationState, key);
-      }
-      if (key === 'description') {
-        errorSate[key] = validationDescriptionField(validationState, key);
-      }
-      if (key === 'delivery') {
-        errorSate[key] = validationDeliveryField(validationState, key);
-      }
-    }
-  });
-
-  return errorSate;
-}
-
-export default validationUtils;

@@ -1,15 +1,7 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import { IInputFile } from '../../../interface/inputsInterface';
 
-export default function InputFile({
-  label,
-  id,
-  type,
-  isValidate,
-  inputRef,
-  errorMessage,
-  onChangeFunc,
-}: IInputFile) {
+export default function InputFile({ label, id, type, hookError, hookRegister }: IInputFile) {
   return (
     <div className="item-form-container">
       <label className="form-label label-file" htmlFor={id}>
@@ -21,14 +13,10 @@ export default function InputFile({
         accept="image/png, image/gif, image/jpeg, image/jpg"
         id={id}
         style={{ display: 'none' }}
-        ref={inputRef}
-        onChange={onChangeFunc}
+        /* eslint-disable-next-line react/jsx-props-no-spreading */
+        {...hookRegister}
       />
-      {isValidate === false && typeof errorMessage.file === 'string' ? (
-        <p className="invalid-message">{errorMessage.file}</p>
-      ) : (
-        ''
-      )}
+      {hookError && <p className="invalid-message">{hookError.message as ReactNode}</p>}
     </div>
   );
 }

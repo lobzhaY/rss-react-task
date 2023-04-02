@@ -1,21 +1,23 @@
 import React from 'react';
-import FormComponent from '../../components/Form/FormComponent';
+
 import FormCardItem from '../../components/FromCardItem/FormCardItem';
 import TitleComponent from '../../components/Title/TitleComponent';
-import { IValidationState } from '../../interface/formInterface';
+import FormComponent from '../../components/Form/FormComponent';
+
+import { ICardState } from '../../interface/formInterface';
 
 export default function FormsPage() {
-  const allCards: IValidationState[] = React.useMemo(() => [], []);
+  const allCards: ICardState[] = React.useMemo(() => [], []);
 
   const [file, setFile] = React.useState('');
-  const [cards, setCards] = React.useState<IValidationState[]>([]);
+  const [cards, setCards] = React.useState<ICardState[]>([]);
 
   const updateFile = React.useCallback((fileUrl: string) => {
     setFile(fileUrl);
   }, []);
 
   const updateAllCards = React.useCallback(
-    (card: IValidationState) => {
+    (card: ICardState) => {
       allCards.push(card);
       setCards(allCards);
     },
@@ -51,7 +53,7 @@ export default function FormsPage() {
           <div className="margin-container">
             <TitleComponent name="New card" />
             <div className="list-container-form">
-              {cards.map((elem: IValidationState, index) => (
+              {cards.map((elem: ICardState, index) => (
                 <FormCardItem
                   key={index.toString()}
                   description={elem.description}

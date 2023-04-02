@@ -10,6 +10,7 @@ export default function FormCardItem({
   file,
   material,
 }: FormCardItemPropsType) {
+  const materialString = Array.isArray(material) ? material.join(',') : '';
   return (
     <div className="card-form">
       <div className="card-form__left">
@@ -32,7 +33,7 @@ export default function FormCardItem({
           <span className="card-form__span">for whom</span> {person}
         </div>
         <div className="form-checked__input">
-          <span className="card-form__span">production material</span> {material}
+          <span className="card-form__span">production material</span> {materialString}
         </div>
       </div>
     </div>

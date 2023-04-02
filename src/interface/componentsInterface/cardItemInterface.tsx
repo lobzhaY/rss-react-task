@@ -12,5 +12,5 @@ export type FormCardItemPropsType = {
   discount: string;
   person: string;
   file: string;
-  material: string;
+  material: string[];
 };

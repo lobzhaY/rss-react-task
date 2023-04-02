@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import { IInputNumberDateText } from '../../../interface/inputsInterface';
 
 export default function InputNumberDateText({
@@ -6,22 +6,25 @@ export default function InputNumberDateText({
   id,
   type,
   placeholder = '',
-  isValidate,
-  inputRef,
-  errorMessage,
   testId = '',
+  hookError,
+  hookRegister,
 }: IInputNumberDateText) {
   return (
     <div className="item-form-container">
       <label className="form-label" htmlFor={id}>
         {label}
       </label>
-      <input type={type} ref={inputRef} placeholder={placeholder} id={id} data-testid={testId} />
-      {isValidate === false && typeof errorMessage[id] === 'string' ? (
-        <p className="invalid-message">{errorMessage[id]}</p>
-      ) : (
-        ''
-      )}
+      <input
+        type={type}
+        placeholder={placeholder}
+        id={id}
+        data-testid={testId}
+        step="any"
+        /* eslint-disable-next-line react/jsx-props-no-spreading */
+        {...hookRegister}
+      />
+      {hookError && <p className="invalid-message">{hookError.message as ReactNode}</p>}
     </div>
   );
 }
