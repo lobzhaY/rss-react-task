@@ -60,7 +60,7 @@ export default function FormComponent({
       updateFile('');
       updateAllCards(cardData);
       reset();
-    }, 2000);
+    }, 3000);
   };
 
   return (

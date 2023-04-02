@@ -1,4 +1,5 @@
 @import '../../styles/variables.scss';
+@import '../../components/PopUp/PopUpComponent.module.scss';
 
 .form {
   margin-bottom: 80px;
@@ -152,18 +153,4 @@ input[type="radio"] {
   color: red;
   position: absolute;
   top: 60px;
-}
-
-.success-message {
-  color: $background-footer-color;
-  font-family: $header-font;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 20px;
-  text-align: center;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  position: absolute;
-  top: -50px
 }

@@ -1,0 +1,34 @@
+@import '../../styles/variables.scss';
+
+.pop-up {
+  width: 100vw;
+  min-height: 100vh;
+  background-color: rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.5s;
+  z-index: 10;
+}
+
+.success-message {
+  position: absolute;
+  width: 50vw;
+  padding: 50px 30px;
+  background-color: #191B1C;
+  color: $background-footer-color;
+  font-family: $header-font;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 20px;
+  text-align: center;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  transition: 0.4s;
+  z-index: 15;
+}

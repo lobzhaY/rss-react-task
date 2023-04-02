@@ -10,7 +10,7 @@ export default function FormCardItem({
   file,
   material,
 }: FormCardItemPropsType) {
-  const materialString = Array.isArray(material) ? material.join(',') : '';
+  const materialString = Array.isArray(material) ? material.join(', ') : '';
   return (
     <div className="card-form">
       <div className="card-form__left">
