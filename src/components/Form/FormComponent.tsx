@@ -38,7 +38,7 @@ export default function FormComponent({
     handleSubmit,
     formState: { errors },
     reset,
-  } = useForm<ICardState>();
+  } = useForm<ICardState>({ reValidateMode: 'onSubmit' });
 
   const changeFormPhoto = (files: FileList) => {
     const objectURL = URL.createObjectURL(files[0] as Blob | MediaSource);
