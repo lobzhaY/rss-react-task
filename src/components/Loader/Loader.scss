@@ -55,3 +55,11 @@
     transform: translate(24px, 0);
   }
 }
+
+.load-position {
+  width: 100%;
+  min-height: 25vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}

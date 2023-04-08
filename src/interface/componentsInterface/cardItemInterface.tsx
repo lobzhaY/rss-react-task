@@ -1,8 +1,7 @@
 export type CardItemPropsType = {
   imageUrl: string;
-  price: string;
-  sale: string;
   description: string;
+  likes: number;
 };
 
 export type FormCardItemPropsType = {
@@ -14,3 +13,28 @@ export type FormCardItemPropsType = {
   file: string;
   material: string[];
 };
+
+interface ICardsUrls {
+  [key: string]: string;
+}
+
+interface ICardsUser {
+  name: string;
+  [key: string]: unknown;
+}
+
+interface ICardsTag {
+  title: string;
+  type: string;
+}
+
+export interface ICardStateMain {
+  alt_description: string;
+  id: string;
+  urls: ICardsUrls;
+  user: ICardsUser;
+  [key: string]: unknown;
+  tags: ICardsTag[];
+  likes: number;
+  description: string;
+}

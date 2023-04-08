@@ -1,25 +1,33 @@
-import React, { ChangeEvent } from 'react';
+import React, {
+  ChangeEvent,
+  KeyboardEvent,
+  SyntheticEvent,
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+} from 'react';
+import { ISearch } from '../../interface/componentsInterface/searchInterface';
 
-export default function SearchComponent() {
-  const [searchValue, setSearchValue] = React.useState(localStorage.getItem('searchValue') || '');
+export default function SearchComponent({ handleChange }: ISearch) {
+  const [searchValue, setSearchValue] = useState(localStorage.getItem('searchValue') || '');
+
+  const searchInputRef = useRef<string>(searchValue);
 
   function saveValue(event: ChangeEvent<HTMLInputElement>): void {
     const target = event.target as HTMLInputElement;
     setSearchValue(target.value);
   }
 
-  React.useEffect(() => {
-    const savedValue = localStorage.getItem('searchValue');
-    if (savedValue?.trim()) {
-      setSearchValue(savedValue);
-    }
-  }, []);
-
-  React.useEffect(() => {
-    return () => {
-      localStorage.setItem('searchValue', searchValue);
-    };
+  useEffect(() => {
+    searchInputRef.current = searchValue;
   }, [searchValue]);
+
+  useEffect(() => {
+    return () => {
+      localStorage.setItem('searchValue', searchInputRef.current || '');
+    };
+  }, []);
 
   return (
     <div className="search-header">
@@ -29,6 +37,7 @@ export default function SearchComponent() {
         value={searchValue === '' ? '' : searchValue}
         onChange={saveValue}
         data-testid="search-input-data"
+        onKeyDown={handleChange}
       />
       <span className="material-symbols-outlined">search</span>
     </div>

@@ -20,7 +20,7 @@
     img {
       width: 195px;
       height: 194px;
-      object-fit: contain;
+      object-fit: cover;
       object-position: center;
     }
   }
@@ -33,18 +33,10 @@
   font-family: $header-font;
   font-size: 16px;
   line-height: 19px;
-  height: 114px;
-}
-
-.info__price {
-  text-align: center;
-}
-
-.info__price-sale {
-  margin-top: 5px;
-  text-align: center;
-  text-decoration: line-through;
-  color: #bab9b9;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
 }
 
 .info__description {
@@ -65,6 +57,10 @@
   .card-icons {
     font-size: 35px;
   }
+  .card-icons-likes {
+    margin: 0;
+    font-size: 30px;
+  }
 }
 
 .card__button {
@@ -76,7 +72,7 @@
 
 .button__buy {
   width: 125px;
-  height: 41px;
+  height: 55px;
   display: flex;
   align-items: center;
   justify-content: center;

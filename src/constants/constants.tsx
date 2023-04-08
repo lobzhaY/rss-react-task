@@ -16,3 +16,6 @@ export const INPUT_SELECT_OPTIONS = [
   'Unisex',
   'For children',
 ];
+
+export const URL_API = 'https://api.unsplash.com/search/photos';
+export const AUTHORIZATION = 'DR6XkTDEdVXCXQCkMXOqAjGzVzxzmnXclFJhwiH-YWI';
