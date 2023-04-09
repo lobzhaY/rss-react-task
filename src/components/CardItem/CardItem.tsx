@@ -1,7 +1,19 @@
 import React from 'react';
 import { CardItemPropsType } from '../../interface/componentsInterface/cardItemInterface';
 
-export default function CardItem({ imageUrl, description, likes }: CardItemPropsType) {
+export default function CardItem({
+  imageUrl,
+  description,
+  likes,
+  setActive,
+  setIdCard,
+  elemId,
+}: CardItemPropsType) {
+  function showPopUp() {
+    setActive(true);
+    setIdCard(elemId);
+  }
+
   return (
     <div className="card" data-testid="html-element">
       <div className="card__image">
@@ -21,7 +33,7 @@ export default function CardItem({ imageUrl, description, likes }: CardItemProps
         </div>
       </div>
       <div className="card__button">
-        <button type="button" className="button__buy">
+        <button type="button" className="button__buy" onClick={showPopUp}>
           More details
         </button>
       </div>

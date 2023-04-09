@@ -16,6 +16,7 @@ import {
   ERROR_MESSAGE,
   ERROR_MESSAGE_NUMBER_LENGTH,
   INPUT_SELECT_OPTIONS,
+  MESSAGE_CARD_CREATE_SUCCESS,
 } from '../../constants/constants';
 import {
   validationDeliveryField,
@@ -54,18 +55,19 @@ export default function FormComponent({
       file: fileState,
     };
     setIsModalActive(true);
-    setTimeout(() => {
-      setIsModalActive(false);
-      setFileState('');
-      updateFile('');
-      updateAllCards(cardData);
-      reset();
-    }, 3000);
+    setFileState('');
+    updateFile('');
+    updateAllCards(cardData);
+    reset();
   };
 
   return (
     <form className="form" onSubmit={handleSubmit(handleSubmitClick)}>
-      {isModalActive && <PopUp />}
+      {isModalActive && (
+        <PopUp active={isModalActive} setActive={setIsModalActive}>
+          <div className="error-container">{MESSAGE_CARD_CREATE_SUCCESS}</div>
+        </PopUp>
+      )}
       <div className="form-container">
         <InputNumberDateText
           label="description"

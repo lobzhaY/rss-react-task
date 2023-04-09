@@ -1,12 +1,4 @@
-import React, {
-  ChangeEvent,
-  KeyboardEvent,
-  SyntheticEvent,
-  useCallback,
-  useEffect,
-  useRef,
-  useState,
-} from 'react';
+import React, { ChangeEvent, useEffect, useRef, useState } from 'react';
 import { ISearch } from '../../interface/componentsInterface/searchInterface';
 
 export default function SearchComponent({ handleChange }: ISearch) {
