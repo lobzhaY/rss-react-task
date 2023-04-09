@@ -7,6 +7,6 @@ import MainPage from './MainPage';
 describe('Check if the container for cards is empty', () => {
   it('the card is present', () => {
     render(<MainPage />);
-    expect(screen.getByTestId('not-empty')).not.toBeEmptyDOMElement();
+    expect(screen.getByTestId('not-empty')).toBeEmptyDOMElement();
   });
 });

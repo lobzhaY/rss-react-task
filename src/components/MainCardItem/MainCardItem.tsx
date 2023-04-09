@@ -66,7 +66,7 @@ export default function MainCardItem({ idElem }: { idElem: string }) {
           <div className="card-wrapper">
             <div className="photo-wrapper">
               <div className="card-img-container">
-                <img src={cardState?.urls.regular} alt="" />
+                <img src={cardState.urls.regular} alt="" />
               </div>
             </div>
             <div className="card-info">

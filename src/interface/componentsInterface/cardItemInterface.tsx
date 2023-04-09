@@ -54,16 +54,7 @@ export interface IMainCardItem {
       longitude: number;
     };
   };
-  tags: { title: string; type: string }[];
-  updated_at: string;
-  urls: {
-    full: string;
-    raw: string;
-    regular: string;
-    small: string;
-    small_s3: string;
-    thumb: string;
-  };
+  urls: ICardsUrls;
   user: {
     bio: string;
     name: string;
