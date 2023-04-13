@@ -5,12 +5,14 @@ import TitleComponent from '../../components/Title/TitleComponent';
 import FormComponent from '../../components/Form/FormComponent';
 
 import { ICardState } from '../../interface/formInterface';
+import { useAppSelector } from '../../store/hooks/redux';
 
 export default function FormsPage() {
   const allCards: ICardState[] = React.useMemo(() => [], []);
 
   const [file, setFile] = React.useState('');
   const [cards, setCards] = React.useState<ICardState[]>([]);
+  const cardList = useAppSelector((state) => state.formReducer.forms);
 
   const updateFile = React.useCallback((fileUrl: string) => {
     setFile(fileUrl);
@@ -46,14 +48,14 @@ export default function FormsPage() {
           </div>
         </div>
       </div>
-      {cards.length === 0 ? (
+      {cardList.length === 0 ? (
         ''
       ) : (
         <div className="bottom-cards">
           <div className="margin-container">
             <TitleComponent name="New card" />
             <div className="list-container-form">
-              {cards.map((elem: ICardState, index) => (
+              {cardList.map((elem: ICardState, index) => (
                 <FormCardItem
                   key={index.toString()}
                   description={elem.description}

@@ -23,6 +23,8 @@ import {
   validationDescriptionField,
   validationPriceField,
 } from '../../utils/validationUtils';
+import { useAppDispatch } from '../../store/hooks/redux';
+import { getAllCards } from '../../store/reducers/FormSlice';
 
 export default function FormComponent({
   updateAllCards,
@@ -33,13 +35,14 @@ export default function FormComponent({
 }) {
   const [isModalActive, setIsModalActive] = React.useState(false);
   const [fileState, setFileState] = React.useState('');
+  const dispatch = useAppDispatch();
 
   const {
     register,
     handleSubmit,
     formState: { errors },
     reset,
-  } = useForm<ICardState>({ reValidateMode: 'onSubmit' });
+  } = useForm<ICardState>({ mode: 'onSubmit', reValidateMode: 'onSubmit' });
 
   const changeFormPhoto = (files: FileList) => {
     const objectURL = URL.createObjectURL(files[0] as Blob | MediaSource);
@@ -57,6 +60,7 @@ export default function FormComponent({
     setIsModalActive(true);
     setFileState('');
     updateFile('');
+    dispatch(getAllCards(cardData));
     updateAllCards(cardData);
     reset();
   };

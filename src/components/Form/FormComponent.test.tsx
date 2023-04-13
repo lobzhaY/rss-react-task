@@ -17,4 +17,10 @@ describe('Forms tests', () => {
     fireEvent.change(dateInput, { target: { value: '2023-04-25' } });
     expect(dateInput.value).toBe('2023-04-25');
   });
+  /* test('test message', () => {
+    render(<PopUp active={true} setActive={function (value: React.SetStateAction<boolean>): void {
+      throw new Error('Function not implemented.');
+    } }><div className="error-container">the data has been saved</div></PopUp>);
+    expect(screen.getByText('the data has been saved')).toBeInTheDocument();
+  }); */
 });

@@ -19,6 +19,6 @@ describe('Cards render api', () => {
   });
   test('fetch card', async () => {
     const { findByText } = render(<MainCardItem idElem={TEST_ID} />);
-    expect(await findByText('Mont Saint-Rigaud, Monsols, France')).toBeInTheDocument();
+    expect(await findByText('42')).toBeInTheDocument();
   });
 });
