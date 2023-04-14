@@ -1,9 +1,10 @@
 import React from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
+
+import Root from './pages/Root';
 import MainPage from './pages/MainPage/MainPage';
 import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
 import AboutUsPage from './pages/AboutUsPage/AboutUsPage';
-import Root from './pages/Root';
 import FormsPage from './pages/Forms/Forms';
 
 export default function App() {

@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { CardItemPropsType } from '../../interface/componentsInterface/cardItemInterface';
 
 export default function CardItem({

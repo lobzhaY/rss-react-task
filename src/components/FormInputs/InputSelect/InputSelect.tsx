@@ -1,5 +1,7 @@
 import React, { ReactNode } from 'react';
+
 import { INPUT_SELECT_OPTIONS } from '../../../constants/constants';
+
 import { IInputSelect } from '../../../interface/inputsInterface';
 
 export default function InputSelect({ label, id, hookError, hookRegister }: IInputSelect) {

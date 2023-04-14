@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { IInputCheckbox } from '../../../interface/inputsInterface';
 
 export default function InputCheckbox({ inputValue, val, hookRegister }: IInputCheckbox) {

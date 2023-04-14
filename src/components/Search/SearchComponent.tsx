@@ -1,25 +1,18 @@
-import React, { ChangeEvent, useEffect, useRef, useState } from 'react';
+import React, { ChangeEvent } from 'react';
+
+import { useAppDispatch, useAppSelector } from '../../store/hooks/redux';
+import { setSearch } from '../../store/reducers/AllCardsSlice';
+
 import { ISearch } from '../../interface/componentsInterface/searchInterface';
 
 export default function SearchComponent({ handleChange }: ISearch) {
-  const [searchValue, setSearchValue] = useState(localStorage.getItem('searchValue') || '');
-
-  const searchInputRef = useRef<string>(searchValue);
+  const searchValue = useAppSelector((state) => state.allCardsReducer.searchValue);
+  const dispatch = useAppDispatch();
 
   function saveValue(event: ChangeEvent<HTMLInputElement>): void {
     const target = event.target as HTMLInputElement;
-    setSearchValue(target.value);
+    dispatch(setSearch(target.value));
   }
-
-  useEffect(() => {
-    searchInputRef.current = searchValue;
-  }, [searchValue]);
-
-  useEffect(() => {
-    return () => {
-      localStorage.setItem('searchValue', searchInputRef.current || '');
-    };
-  }, []);
 
   return (
     <div className="search-header">

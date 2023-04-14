@@ -1,6 +1,6 @@
 import { rest } from 'msw';
 import { mockValueItem, mockValueSearch } from '../test/mock';
-import { AUTHORIZATION, TEST_ID, URL_API_GET_ONE, URL_API_SEARCH } from '../constants/constants';
+import { AUTHORIZATION, URL_API_SEARCH } from '../constants/constants';
 
 export const handlers = [
   rest.get(`${URL_API_SEARCH}?query='photo'&client_id=${AUTHORIZATION}`, (req, res, ctx) => {

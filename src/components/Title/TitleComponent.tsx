@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { TitleType } from '../../interface/componentsInterface/titleInterface';
 
 export default function TitleComponent({ name }: TitleType) {

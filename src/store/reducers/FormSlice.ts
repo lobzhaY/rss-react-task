@@ -1,9 +1,7 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
-import { ICardState } from '../../interface/formInterface';
 
-interface FormReduxState {
-  forms: ICardState[];
-}
+import { ICardState } from '../../interface/formInterface';
+import { FormReduxState } from '../../interface/sliceInterface';
 
 const initialState: FormReduxState = {
   forms: [],

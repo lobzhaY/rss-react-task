@@ -3,6 +3,9 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import { SubmitHandler } from 'react-hook-form/dist/types';
 
+import { useAppDispatch } from '../../store/hooks/redux';
+import { getAllCards } from '../../store/reducers/FormSlice';
+
 import InputCheckbox from '../FormInputs/InputCheckbox/InputCheckbox';
 import InputFile from '../FormInputs/InputFile/InputFile';
 import InputRadio from '../FormInputs/InputRadio/InputRadio';
@@ -18,21 +21,14 @@ import {
   INPUT_SELECT_OPTIONS,
   MESSAGE_CARD_CREATE_SUCCESS,
 } from '../../constants/constants';
+
 import {
   validationDeliveryField,
   validationDescriptionField,
   validationPriceField,
 } from '../../utils/validationUtils';
-import { useAppDispatch } from '../../store/hooks/redux';
-import { getAllCards } from '../../store/reducers/FormSlice';
 
-export default function FormComponent({
-  updateAllCards,
-  updateFile,
-}: {
-  updateAllCards: (card: ICardState) => void;
-  updateFile: (fileUrl: string) => void;
-}) {
+export default function FormComponent({ updateFile }: { updateFile: (fileUrl: string) => void }) {
   const [isModalActive, setIsModalActive] = React.useState(false);
   const [fileState, setFileState] = React.useState('');
   const dispatch = useAppDispatch();
@@ -61,7 +57,6 @@ export default function FormComponent({
     setFileState('');
     updateFile('');
     dispatch(getAllCards(cardData));
-    updateAllCards(cardData);
     reset();
   };
 

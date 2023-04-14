@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { IInputRadio } from '../../../interface/inputsInterface';
 
 export default function InputRadio({

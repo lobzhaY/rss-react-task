@@ -1,4 +1,5 @@
 import React, { ReactNode } from 'react';
+
 import { IInputFile } from '../../../interface/inputsInterface';
 
 export default function InputFile({ label, id, type, hookError, hookRegister }: IInputFile) {

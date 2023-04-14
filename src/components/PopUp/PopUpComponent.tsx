@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { PopUpPropsType } from '../../interface/componentsInterface/popUpInterface';
 
 export default function PopUp({ children, setActive }: PopUpPropsType) {
