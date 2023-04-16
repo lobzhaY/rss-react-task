@@ -1,14 +1,19 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { BrowserRouter } from 'react-router-dom';
 import { describe, test, expect } from 'vitest';
 
 import App from '../../App';
+import { renderWithProviders } from '../../utils/testUtils';
 
 describe('Router form test', () => {
   test('Route form rendering', async () => {
-    render(<App />, { wrapper: BrowserRouter });
+    renderWithProviders(
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    );
 
     expect(screen.getByText('Forms')).toBeInTheDocument();
 

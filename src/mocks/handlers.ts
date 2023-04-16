@@ -34,7 +34,7 @@ export const handlers = [
           })
         );
       }
-      return res(ctx.status(200), ctx.json({ mockValueItem }));
+      return res(ctx.status(200), ctx.json(mockValueItem));
     }
   ),
 ];

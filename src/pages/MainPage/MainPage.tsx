@@ -1,4 +1,4 @@
-import React, { SyntheticEvent, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import CardItem from '../../components/CardItem/CardItem';
 import TitleComponent from '../../components/Title/TitleComponent';
@@ -26,17 +26,10 @@ export default function MainPage() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const handleChange = async (e: SyntheticEvent<HTMLInputElement, KeyboardEvent>) => {
-    if (e.nativeEvent.key === 'Enter') {
-      if (!(e.target instanceof HTMLInputElement)) return;
-      dispatch(fetchAllCards(searchValue));
-    }
-  };
-
   return (
     <>
       <TitleComponent name="Main page" />
-      <SearchComponent handleChange={handleChange} />
+      <SearchComponent />
       <div className="margin-container">
         {isModalActive && (
           <PopUp active={isModalActive} setActive={setIsModalActive}>

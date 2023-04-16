@@ -8,7 +8,7 @@ import { CardReduxState } from '../../interface/sliceInterface';
 const initialState: CardReduxState = {
   card: null,
   errorState: [],
-  isPending: true,
+  isPending: false,
   isError: false,
 };
 

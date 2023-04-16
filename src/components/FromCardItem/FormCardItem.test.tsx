@@ -14,7 +14,7 @@ describe('Check if the container for cards is empty', () => {
         discount="5"
         person="men"
         file="D:\CV\Photo\IMG_4407"
-        material="silver"
+        material={['silver', 'gold']}
       />
     );
     expect(document.querySelector('.card-form')).not.toBeEmptyDOMElement();

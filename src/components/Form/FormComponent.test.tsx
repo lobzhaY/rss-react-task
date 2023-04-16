@@ -1,26 +1,33 @@
 import { describe, expect, test } from 'vitest';
-import { fireEvent, render, screen } from '@testing-library/react';
+import { fireEvent, screen } from '@testing-library/react';
 
 import React from 'react';
 import FormsPage from '../../pages/Forms/Forms';
+import { renderWithProviders } from '../../utils/testUtils';
+import PopUp from '../PopUp/PopUpComponent';
+import { MESSAGE_CARD_CREATE_SUCCESS } from '../../constants/constants';
 
 describe('Forms tests', () => {
+  const active = true;
   test('test description input', () => {
-    render(<FormsPage />);
+    renderWithProviders(<FormsPage />);
     const nameInput = screen.getByTestId('forms-description__input') as HTMLInputElement;
     fireEvent.change(nameInput, { target: { value: 'xxxxx xxxxx' } });
     expect(nameInput.value).toBe('xxxxx xxxxx');
   });
+
   test('test date', () => {
-    render(<FormsPage />);
+    renderWithProviders(<FormsPage />);
     const dateInput = screen.getByTestId('forms-delivery__input') as HTMLInputElement;
     fireEvent.change(dateInput, { target: { value: '2023-04-25' } });
     expect(dateInput.value).toBe('2023-04-25');
   });
-  /* test('test message', () => {
-    render(<PopUp active={true} setActive={function (value: React.SetStateAction<boolean>): void {
-      throw new Error('Function not implemented.');
-    } }><div className="error-container">the data has been saved</div></PopUp>);
+  test('test message', () => {
+    renderWithProviders(
+      <PopUp active setActive={() => !active}>
+        <div className="error-container">{MESSAGE_CARD_CREATE_SUCCESS}</div>
+      </PopUp>
+    );
     expect(screen.getByText('the data has been saved')).toBeInTheDocument();
-  }); */
+  });
 });
