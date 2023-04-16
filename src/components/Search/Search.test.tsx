@@ -2,18 +2,17 @@ import { describe, expect, test } from 'vitest';
 import { fireEvent, screen, act, waitFor } from '@testing-library/react';
 
 import React from 'react';
-import SearchComponent from './SearchComponent';
 import MainPage from '../../pages/MainPage/MainPage';
 import { renderWithProviders } from '../../utils/testUtils';
 
 describe('Search input tests', () => {
   test('render SearchComponent', () => {
-    renderWithProviders(<SearchComponent />);
+    renderWithProviders(<MainPage />);
     const searchInput = screen.getByPlaceholderText('Search...') as HTMLInputElement;
     expect(searchInput.placeholder).toBe('Search...');
   });
   test('SearchComponent check', () => {
-    renderWithProviders(<SearchComponent />);
+    renderWithProviders(<MainPage />);
     const searchInput = screen.getByTestId('search-input-data') as HTMLInputElement;
     fireEvent.change(searchInput, { target: { value: '12345' } });
     expect(searchInput.value).toBe('12345');
