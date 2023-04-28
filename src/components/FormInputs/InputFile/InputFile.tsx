@@ -10,6 +10,7 @@ export default function InputFile({ label, id, type, hookError, hookRegister }: 
         <span className="material-symbols-outlined label-file-icon">drive_folder_upload</span>
       </label>
       <input
+        data-testid="input-file"
         type={type}
         accept="image/png, image/gif, image/jpeg, image/jpg"
         id={id}
