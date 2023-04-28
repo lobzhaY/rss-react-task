@@ -61,7 +61,7 @@ export default function FormComponent({ updateFile }: { updateFile: (fileUrl: st
   };
 
   return (
-    <form className="form" onSubmit={handleSubmit(handleSubmitClick)}>
+    <form id="form" className="form" onSubmit={handleSubmit(handleSubmitClick)}>
       {isModalActive && (
         <PopUp active={isModalActive} setActive={setIsModalActive}>
           <div className="error-container">{MESSAGE_CARD_CREATE_SUCCESS}</div>

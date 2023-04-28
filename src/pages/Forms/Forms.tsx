@@ -46,7 +46,7 @@ export default function FormsPage() {
             <div className="list-container-form">
               {cardList.map((elem: ICardState, index) => (
                 <FormCardItem
-                  key={index.toString()}
+                  key={`Q${index.toString()}`}
                   description={elem.description}
                   delivery={elem.delivery}
                   price={elem.price}

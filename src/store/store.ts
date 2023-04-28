@@ -1,4 +1,4 @@
-import { combineReducers, configureStore } from '@reduxjs/toolkit';
+import { PreloadedState, combineReducers, configureStore } from '@reduxjs/toolkit';
 
 import formReducer from './reducers/FormSlice';
 import cardReducer from './reducers/CardSlice';
@@ -10,9 +10,10 @@ const rootReducer = combineReducers({
   allCardsReducer,
 });
 
-export const setupStore = () => {
+export const setupStore = (preloadedState?: PreloadedState<RootState>) => {
   return configureStore({
     reducer: rootReducer,
+    preloadedState,
   });
 };
 

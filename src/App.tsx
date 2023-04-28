@@ -7,6 +7,8 @@ import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
 import AboutUsPage from './pages/AboutUsPage/AboutUsPage';
 import FormsPage from './pages/Forms/Forms';
 
+import './ssr-styles.css';
+
 export default function App() {
   return (
     <div className="app" data-testid="app-component">

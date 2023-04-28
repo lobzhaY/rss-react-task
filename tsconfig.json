@@ -17,5 +17,15 @@
     "outDir": "./build",
     "types": ["vitest/globals", "@testing-library/jest-dom"]
   },
-  "include": ["vite.config.ts", ".eslintrc.json", "./jest-setup.ts", "./src/**/*", "styled.d.ts", "../../setupTests.ts",]
+  "include": [
+    "vite.config.ts",
+    ".eslintrc.json",
+    "./jest-setup.ts",
+    "./src/**/*",
+    "styled.d.ts",
+    "../../setupTests.ts",
+    "public/server"
+  ],
+  "references": [{ "path": "./tsconfig.node.json" }],
+  "ts-node": { "esm": true, "experimentalSpecifierResolution": "node" }
 }
