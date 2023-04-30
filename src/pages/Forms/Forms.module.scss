@@ -2,37 +2,37 @@
 @import '../../components/Form/FormComponent.module.scss';
 @import '../../components//FromCardItem/FormCardItem.module.scss';
 
-.top-form {
-  width: 100%;
-  background-color: $background-form-color;
-
-  .wrapper-flex {
-    height: 100%;
-    display: flex;
-    justify-content: space-between;
-  }
-}
-
-.left-img {
-  width: 260px;
-  height: 200px;
-
-  img {
+  .top-form {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
+    background-color: $background-form-color;
+
+    .wrapper-flex {
+      height: 100%;
+      display: flex;
+      justify-content: space-between;
+    }
   }
-}
 
-.right-form {
-  width: 70%;
-  margin-bottom: 100px;
-  border-bottom: 3px solid #C4C4C4;
-}
+  .left-img {
+    width: 260px;
+    height: 200px;
 
-.list-container-form {
-  display: flex;
-  justify-content: space-evenly;
-  flex-wrap: wrap;
-}
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+
+  .right-form {
+    width: 70%;
+    margin-bottom: 100px;
+    border-bottom: 3px solid #C4C4C4;
+  }
+
+  .list-container-form {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+  }

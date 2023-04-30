@@ -10,7 +10,7 @@ import { RootState, setupStore } from './store/store';
 import App from './App';
 
 import 'normalize.css';
-import './index.scss';
+import './App.scss';
 
 declare global {
   interface Window {

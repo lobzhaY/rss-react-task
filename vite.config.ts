@@ -16,12 +16,21 @@ export default defineConfig({
     outDir: 'build',
     minify: false,
     sourcemap: true,
+    manifest: true,
+    rollupOptions: {
+      input: "src/entry-server.tsx",
+    },
   },
-  plugins: [react(), eslint(), tsconfigPaths(), svgr(),
+  plugins: [
+    react(),
+    eslint(),
+    tsconfigPaths(),
+    svgr(),
     istanbul({
       cypress: true,
       requireEnv: false,
-    }),],
+    }),
+  ],
   test: {
     globals: true,
     environment: 'jsdom',
@@ -30,5 +39,8 @@ export default defineConfig({
       provider: 'c8',
       reporter: 'text',
     },
+  },
+  server: {
+    origin: 'http://127.0.0.1:3001',
   },
 });

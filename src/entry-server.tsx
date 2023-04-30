@@ -1,3 +1,5 @@
+import 'vite/modulepreload-polyfill';
+
 import React from 'react';
 import { RenderToPipeableStreamOptions, renderToPipeableStream } from 'react-dom/server';
 import { StaticRouter } from 'react-router-dom/server';
@@ -6,6 +8,9 @@ import { setupStore } from './store/store';
 
 import App from './App';
 import { fetchAllCards } from './store/reducers/ActionCreators';
+
+import './App.scss';
+import './index.css';
 
 const store = setupStore();
 
