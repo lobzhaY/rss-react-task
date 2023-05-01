@@ -1,0 +1,132 @@
+@import '../../styles/variables.scss';
+
+.header-container__header-info {
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header-info {
+  display: flex;
+  align-items: center;
+}
+
+.header-info__call-info,
+.header-login {
+  display: flex;
+  align-items: center;
+}
+
+.header-info-icon {
+  font-size: 15px;
+  margin-right: 10px;
+}
+
+.call-info__phone,
+.call-info__work,
+.call-info__time,
+.header-login__entry,
+.header-login__exit {
+  font-family: $text-font;
+  color: $text-color;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  border-right: 1px solid $text-color;
+  padding: 0 5px;
+}
+
+.header-login,
+.item-cursor {
+  cursor: not-allowed;
+}
+
+.call-info__time,
+.header-login__exit {
+  border-right: none;
+}
+
+.header-container__header-nav {
+  height: 80px;
+  background-color: $background-header-color;
+  font-family: $text-font;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+  text-transform: uppercase;
+  color: $text-color;
+
+
+  .margin-container {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.header-nav__logo {
+  width: 124px;
+  height: 69px;
+}
+
+.header-nav__logo-container {
+  width: 100%;
+  height: 100%;
+  display: block;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+  }
+}
+
+.header-nav__navigation {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.navigation {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  list-style-type: none;
+}
+
+.navigation__item-link {
+  font-family: $text-font;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+  text-transform: uppercase;
+  color: $text-color;
+  text-decoration: none;
+}
+
+.navigation__item {
+  width: 120px;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+}
+
+.navigation__item:hover,
+.navigation__item-link:hover,
+.navigation__item-link-active,
+.navigation__item-link-active {
+  width: 120px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $color;
+  text-decoration: none;
+  background-color: $background-color-hover;
+}

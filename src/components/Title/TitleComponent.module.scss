@@ -1,0 +1,22 @@
+@import '../../styles/variables.scss';
+
+.title-container {
+  margin: 0px auto;
+  padding: 60px 0;
+
+  h1 {
+    font-family: $header-font;
+    font-size: 36px;
+    line-height: 42px;
+    text-align: center;
+    text-transform: uppercase;
+    color: $color;
+    margin: 0 0 20px;
+  }
+
+  hr {
+    width: 120px;
+    height: 0px;
+    border: 1px solid #FFFFFF;
+  }
+}

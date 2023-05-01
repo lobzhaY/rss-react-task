@@ -1,0 +1,18 @@
+@import './styles/variables.scss';
+@import './pages/Root.module.scss';
+@import './pages/Forms/Forms.module.scss';
+@import '../src/components/Footer/FooterComponent.module.scss';
+@import '../src/components/Header/HeaderComponent.module.scss';
+@import '../src/components/Title/TitleComponent.module.scss';
+@import '../src/components/Search/SearchComponent.module.scss';
+@import '../src//components/Loader/Loader.scss';
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: $background;
+  color: $text-color;
+  font-family: $text-font;
+}
