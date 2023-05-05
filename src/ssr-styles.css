@@ -1,0 +1,248 @@
+:root {
+  --header-font: 'Playfair Display', serif;
+  --text-font: 'PT Sans', sans-serif;
+
+  --background: #000000;
+  --background-header-color: #0F0F0F;
+  --background-footer-color: #998431;
+  --background-form-color: #282828;
+  --background-color-hover: #1F1F1F;
+
+
+  --color: #FFFFFF;
+  --text-color: #969696;
+
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #000000;
+  color: var(--text-color);
+  font-family: var(--text-font);
+}
+
+.card {
+  width: 260px;
+  height: 365px;
+  border-bottom: 1px solid #D6D6D6;
+  background-color: #191B1C;
+  margin-bottom: 40px;
+}
+
+.card__image {
+  width: 100%;
+  position: relative;
+}
+
+.card__image .image__container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.image__container img {
+  width: 195px;
+  height: 194px;
+  object-fit: cover;
+  object-position: center;
+}
+
+
+.image__info {
+  background-color: #0F0F0F;
+  padding: 5px;
+  color: #D0D0D0;
+  font-family: var(--header-font);
+  font-size: 16px;
+  line-height: 19px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.info__description {
+  margin: 7px 10px;
+  text-align: center;
+}
+
+.card__info {
+  position: absolute;
+  width: 100%;
+  padding: 10px 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.info-container .card-icons {
+  font-size: 35px;
+}
+
+.info-container .card-icons-likes {
+  margin: 0;
+  font-size: 30px;
+}
+
+
+.card__button {
+  margin-top: 7px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button__buy {
+  width: 125px;
+  height: 55px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--background-footer-color);
+  color: var(--color);
+  padding: 15px 30px;
+  gap: 10px;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+  text-align: center;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-family: var(--header-font);
+}
+
+.header-container__header-info {
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header-info {
+  display: flex;
+  align-items: center;
+}
+
+.header-info__call-info,
+.header-login {
+  display: flex;
+  align-items: center;
+}
+
+.header-info-icon {
+  font-size: 15px;
+  margin-right: 10px;
+}
+
+.call-info__phone,
+.call-info__work,
+.call-info__time,
+.header-login__entry,
+.header-login__exit {
+  font-family: var(--text-font);
+  color: var(--text-color);
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  border-right: 1px solid var(--text-color);
+  padding: 0 5px;
+}
+
+.header-login,
+.item-cursor {
+  cursor: not-allowed;
+}
+
+.call-info__time,
+.header-login__exit {
+  border-right: none;
+}
+
+.header-container__header-nav {
+  height: 80px;
+  background-color: var(--background-header-color);
+  font-family: var(--text-font);
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+  text-transform: uppercase;
+  color: var(--text-color);
+}
+
+.header-container__header-nav .margin-container {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+
+.header-nav__logo {
+  width: 124px;
+  height: 69px;
+}
+
+.header-nav__logo-container {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.header-nav__logo-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+}
+
+
+.header-nav__navigation {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.navigation {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  list-style-type: none;
+}
+
+.navigation__item-link {
+  font-family: var(--text-font);
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+  text-transform: uppercase;
+  color: var(--text-color);
+  text-decoration: none;
+}
+
+.navigation__item {
+  width: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navigation__item:hover,
+.navigation__item-link:hover,
+.navigation__item-link-active,
+.navigation__item-link-active {
+  width: 120px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color);
+  text-decoration: none;
+  background-color: var(--background-color-hover);
+}
