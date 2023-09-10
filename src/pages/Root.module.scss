@@ -47,3 +47,31 @@
   text-transform: uppercase;
   color: $text-color;
 }
+.about-container {
+  width: 70vw;
+  margin: 0 auto;
+
+  p {
+    color: #969696;
+    font-family: "PT Sans", sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 150%;
+    text-transform: lowercase;
+    margin: 10px 0;
+  }
+   
+  h3 {
+    color: #998431;
+    font-family: "Playfair Display", serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 20px;
+    text-align: center;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin: 20px 0;
+  }
+}
