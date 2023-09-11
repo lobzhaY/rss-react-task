@@ -1,0 +1,143 @@
+@import '../../styles/variables.scss';
+
+.modal-description-title {
+  color: $background-footer-color;
+  padding: 15px 30px;
+  gap: 5px;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+  text-align: center;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-family: $header-font;
+  margin: 0;
+
+  span {
+    color: $text-color;
+  }
+}
+.img-info-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+
+  .item-description {
+    color: $text-color;
+    padding: 7px 0;
+    font-family: $text-font;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 150%;
+    text-transform: lowercase;
+    margin-right: 7px;
+  }
+}
+
+.item-definition {
+  margin: 10px 0;
+  max-width: 30vw;
+  max-height: 15vh;
+  overflow: hidden;
+  white-space: normal;
+  text-overflow: ellipsis;
+  font-size: 12px;
+}
+
+.item-definition:hover {
+  overflow: visible;
+}
+
+.item-definition-icon {
+  background-color: $background-footer-color;
+  padding: 3px 5px;
+  cursor: pointer;
+  border-radius: 3px;
+  color: $background;
+  font-size: 16px;
+  font-weight: bold;
+  margin-left: 10px;
+}
+
+.card-wrapper {
+  width: calc(100% - 50px);
+  margin: 0 auto;
+  display: flex;
+  border-bottom: 1px solid $color;
+}
+.photo-wrapper {
+  width: 35%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  border-right: 1px solid $color;
+}
+.user-photo {
+  width: 150px;
+  height: 150px;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+}
+.card-img-container {
+  width: 150px;
+  height: 150px;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+}
+.card-info {
+  width: 55%;
+  margin: 0 auto 10px;
+  padding: 5px 10px;
+}
+.info-all {
+  color: $text-color;
+  padding: 7px 0;
+  font-family: $color;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 150%;
+  border-bottom: 1px solid $color;
+
+  p {
+    margin: 0;
+  }
+}
+.info-all-text {
+  color: $text-color;
+    padding: 7px 0;
+    font-family: $text-font;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 150%;
+    text-transform: lowercase;
+    margin-right: 10px;
+
+  p {
+    margin: 0;
+  }
+}
+.info-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid $color ;
+}
+.info-row-last {
+  width: 60%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
