@@ -3,7 +3,6 @@ import '@testing-library/jest-dom';
 import { BrowserRouter } from 'react-router-dom';
 import MainPage from '../pages/MainPage/MainPage';
 import MainCardItem from '../components/MainCardItem/MainCardItem';
-import { TEST_ID } from '../constants/constants';
 import { renderWithProviders } from '../utils/testUtils';
 
 describe('Cards render api', () => {
@@ -14,7 +13,7 @@ describe('Cards render api', () => {
   test('fetch card', async () => {
     const { findByText } = renderWithProviders(
       <BrowserRouter>
-        <MainCardItem idElem={TEST_ID} />
+        <MainCardItem idElem={import.meta.env.VITE_TEST_ID} />
       </BrowserRouter>
     );
     expect(await findByText(23)).toBeInTheDocument();

@@ -1,10 +1,13 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
-import { AUTHORIZATION, URL_API_GET_ONE, URL_API_SEARCH } from '../../constants/constants';
 
 export const fetchCard = createAsyncThunk('card/fetchAPI', async (idElem: string, thunkAPI) => {
   try {
-    const response = await axios.get(`${URL_API_GET_ONE}/${idElem}?client_id=${AUTHORIZATION}`);
+    const response = await axios.get(
+      `${import.meta.env.VITE_URL_API_GET_ONE}/${idElem}?client_id=${
+        import.meta.env.VITE_AUTHORIZATION
+      }`
+    );
     return response.data;
   } catch (e) {
     const errors = [];
@@ -23,7 +26,9 @@ export const fetchAllCards = createAsyncThunk(
   async (searchValue: string, thunkAPI) => {
     try {
       const res = await axios.get(
-        `${URL_API_SEARCH}?query=${searchValue || 'photo'}&client_id=${AUTHORIZATION}`
+        `${import.meta.env.VITE_URL_API_SEARCH}?query=${searchValue || 'photo'}&client_id=${
+          import.meta.env.VITE_AUTHORIZATION
+        }`
       );
       return res.data.results;
     } catch (e) {

@@ -11,6 +11,7 @@ node_modules
 dist
 build
 coverage
+cypress
 dist-ssr
 *.local
 .nyc_output
@@ -25,3 +26,4 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+.env

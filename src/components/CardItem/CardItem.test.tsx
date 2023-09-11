@@ -3,7 +3,6 @@ import { render, screen } from '@testing-library/react';
 
 import React from 'react';
 import CardItem from './CardItem';
-import { TEST_ID } from '../../constants/constants';
 
 describe('Whether the element is present on the page', () => {
   const showModal = true;
@@ -14,8 +13,8 @@ describe('Whether the element is present on the page', () => {
         description="Alt description"
         likes={11}
         setActive={() => !showModal}
-        setIdCard={() => TEST_ID}
-        elemId={TEST_ID}
+        setIdCard={() => import.meta.env.VITE_TEST_ID}
+        elemId={import.meta.env.VITE_TEST_ID}
       />
     );
     expect(screen.getByTestId('html-element')).toBeInTheDocument();

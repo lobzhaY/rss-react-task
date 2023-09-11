@@ -18,9 +18,3 @@ export const INPUT_SELECT_OPTIONS = [
 ];
 
 export const MESSAGE_CARD_CREATE_SUCCESS = 'the data has been saved';
-
-export const URL_API_SEARCH = 'https://api.unsplash.com/search/photos';
-export const URL_API_GET_ONE = 'https://api.unsplash.com/photos';
-export const AUTHORIZATION = 'DR6XkTDEdVXCXQCkMXOqAjGzVzxzmnXclFJhwiH-YWI';
-
-export const TEST_ID = 'F_-0BxGuVvo';
