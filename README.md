@@ -1,9 +1,6 @@
 # Pet Project
 Implemented during stage 3 training at Rolling Scopes School.
 
-----------------------------
-***Deploy***
-https://peaceful-halva-8232eb.netlify.app
 
 ----------------------------
 ![](https://github.com/lobzhaY/rss-react-task/assets/89414357/788d4501-cb14-41d1-b264-1c404f4af7fa)
