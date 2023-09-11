@@ -73,7 +73,7 @@ export default function FormComponent({ updateFile }: { updateFile: (fileUrl: st
           id="description"
           type="text"
           testId="forms-description__input"
-          placeholder="СЕРЕБРЯНЫЕ СЕРЬГИ С ЯНТАРЁМ"
+          placeholder="PHOTO DESCRIPTION"
           hookRegister={{
             ...register('description', {
               required: ERROR_MESSAGE,
@@ -83,7 +83,7 @@ export default function FormComponent({ updateFile }: { updateFile: (fileUrl: st
           hookError={errors.description}
         />
         <InputNumberDateText
-          label="date of delivery"
+          label="publication date"
           id="delivery"
           type="date"
           testId="forms-delivery__input"
@@ -184,41 +184,41 @@ export default function FormComponent({ updateFile }: { updateFile: (fileUrl: st
         />
       </div>
       <div className="item-form-container-last">
-        <p className="form-label"> TYPE OF METAL</p>
+        <p className="form-label"> CHARACTERISTICS</p>
         <div className="form-discount">
           <InputCheckbox
-            inputValue="Pink gold"
-            val="Pink gold"
+            inputValue="Format"
+            val="Format"
             hookRegister={{ ...register('material', { required: ERROR_MESSAGE }) }}
           />
           <InputCheckbox
-            inputValue="White gold"
-            val="White gold"
+            inputValue="Contrast"
+            val="Contrast"
             hookRegister={{ ...register('material', { required: ERROR_MESSAGE }) }}
           />
           <InputCheckbox
-            inputValue="Combined Gold"
-            val="Combined Gold"
+            inputValue="Brightness"
+            val="Brightness"
             hookRegister={{ ...register('material', { required: ERROR_MESSAGE }) }}
           />
           <InputCheckbox
-            inputValue="Yellow Gold"
-            val="Yellow Gold"
+            inputValue="Saturation"
+            val="Saturation"
             hookRegister={{ ...register('material', { required: ERROR_MESSAGE }) }}
           />
           <InputCheckbox
-            inputValue="Silver"
-            val="Silver"
+            inputValue="Sharpness"
+            val="Sharpness"
             hookRegister={{ ...register('material', { required: ERROR_MESSAGE }) }}
           />
           <InputCheckbox
-            inputValue="Combined Silver"
-            val="Combined Silver"
+            inputValue="Definition"
+            val="Definition"
             hookRegister={{ ...register('material', { required: ERROR_MESSAGE }) }}
           />
           <InputCheckbox
-            inputValue="Silver Gilded"
-            val="Silver Gilded"
+            inputValue="Color scheme"
+            val="Color scheme"
             hookRegister={{ ...register('material', { required: ERROR_MESSAGE }) }}
           />
         </div>

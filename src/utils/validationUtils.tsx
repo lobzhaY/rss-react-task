@@ -26,7 +26,7 @@ export function validationDescriptionField(descriptionForm: string): string | bo
   const description = descriptionForm.split(' ');
   if (description.length < 2) {
     errorResponse = ERROR_MESSAGE_DESCRIPTION_LENGTH;
-  } else if (description[0].length < 5 || description[1].length < 5) {
+  } else if (!(description[0].length > 3) || !(description[1].length > 3)) {
     errorResponse = ERROR_MESSAGE_DESCRIPTION_WORD_LENGTH;
   } else if (!/^[A-ZА-ЯЁ]+$/i.test(description[0]) || !/^[A-ZА-ЯЁ]+$/i.test(description[1])) {
     errorResponse = ERROR_MESSAGE_DESCRIPTION_ONLY_LETTER;

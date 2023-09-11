@@ -22,19 +22,19 @@ export default function FormCardItem({
       </div>
       <div className="card-form__right">
         <div className="form-checked__input">
-          <span className="card-form__span">date of delivery</span> {delivery}
+          <span className="card-form__span">PUBLICATION DATE</span> {delivery}
         </div>
         <div className="form-checked__input">
-          <span className="card-form__span">Product cost</span> {price}
+          <span className="card-form__span">PRICE</span> {price}
         </div>
         <div className="form-checked__input">
-          <span className="card-form__span">Amount of discount</span> {discount}
+          <span className="card-form__span">DISCOUNT</span> {discount}
         </div>
         <div className="form-checked__input">
           <span className="card-form__span">for whom</span> {person}
         </div>
         <div className="form-checked__input">
-          <span className="card-form__span">production material</span> {materialString}
+          <span className="card-form__span">CHARACTERISTICS</span> {materialString}
         </div>
       </div>
     </div>
